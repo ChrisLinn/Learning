@@ -1,0 +1,21 @@
+main()
+{
+	创建界面
+
+		造数字 储存
+		读取数字
+		显示题目
+		接受输入
+		检查题目
+		
+		
+		
+		
+		错题集？
+
+
+}
+void 
+void CreatNum()
+void read()
+void display()

@@ -1,0 +1,34 @@
+DATAS SEGMENT
+     X DB 32,-43,76,95,-1,-78,127,-128,-125,88
+DATAS ENDS
+EXTRAS SEGMENT
+      Y DB 10 DUP(?)
+EXTRAS ENDS
+CODES SEGMENT
+     ASSUME CS:CODES,DS:DATAS,ES:EXTRAS
+START:MOV AX,DATAS
+      MOV DS,AX
+      MOV AX,EXTRAS
+      MOV ES,AX
+      MOV CX,9
+      MOV SI,0
+   L1:MOV DX,CX
+   L2:MOV AL,X[SI]
+      CMP AL,X[SI+1]
+      JL  L3
+      XCHG AL,X[SI+1]
+      MOV X[SI],AL
+   L3:INC SI
+      LOOP L2
+      MOV CX,DX
+      MOV SI,0
+      LOOP L1
+      MOV CX,10
+   L4:MOV AL,X[SI]
+      MOV Y[SI],AL
+      INC SI
+      LOOP L4
+      MOV AH,4CH
+      INT 21H
+CODES ENDS
+     END START

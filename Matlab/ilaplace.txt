@@ -1,0 +1,4 @@
+syms s；
+A=[-3,-1;2,0]；
+R=inv(s*eye(2)-A)*[2;3]
+ilaplace(R)

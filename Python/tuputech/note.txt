@@ -1,0 +1,10 @@
+https://open.tuputech.com/api/example
+
+1. 如何跑一个文件夹的全部图片
+2. 如何同时跑多个识别任务
+3. 如何多线程跑多个任务
+	1 thread for 1 pic
+	1 thread for 1 folder
+4. 如何统计结果
+5. 如何检测漏检
+6. 如何测试性能（构建标准测试集），精确度

@@ -1,0 +1,32 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 队列 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP15.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/队列.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\Administrator\桌面\shiyan\队列\书上错误队列\队列.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP15.tmp" 
+<h3>Output Window</h3>
+Compiling...
+队列.cpp
+c:\program files\microsoft visual studio\vc98\include\list.h(37) : error C2146: syntax error : missing ';' before identifier 'Length'
+c:\program files\microsoft visual studio\vc98\include\list.h(37) : error C2501: 'DWORD' : missing storage-class or type specifiers
+c:\program files\microsoft visual studio\vc98\include\list.h(37) : error C2501: 'Length' : missing storage-class or type specifiers
+c:\program files\microsoft visual studio\vc98\include\list.h(53) : error C2146: syntax error : missing ';' before identifier 'GetPrevLink'
+c:\program files\microsoft visual studio\vc98\include\list.h(53) : error C2433: 'WINAPI' : 'inline' not permitted on data declarations
+c:\program files\microsoft visual studio\vc98\include\list.h(53) : fatal error C1004: unexpected end of file found
+执行 cl.exe 时出错.
+
+
+
+<h3>Results</h3>
+队列.obj - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

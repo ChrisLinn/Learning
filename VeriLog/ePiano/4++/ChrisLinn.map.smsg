@@ -1,0 +1,33 @@
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 7.0 Build 33 02/05/2007 SJ Full Version
+    Info: Processing started: Mon Jul 01 14:55:28 2013
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ChrisLinn -c ChrisLinn
+Info: Found 1 design units, including 1 entities, in source file AngryPuppy.v
+    Info: Found entity 1: AngryPuppy
+Info: Found 1 design units, including 1 entities, in source file BugKiller.v
+    Info: Found entity 1: BugKiller
+Info: Found 1 design units, including 1 entities, in source file Gen.v
+    Info: Found entity 1: Gen
+Info: Found 1 design units, including 1 entities, in source file Modi.v
+    Info: Found entity 1: Modi
+Info: Found 1 design units, including 1 entities, in source file ChrisLinn.bdf
+    Info: Found entity 1: ChrisLinn
+Info: Elaborating entity "ChrisLinn" for the top level hierarchy
+Info: Elaborating entity "BugKiller" for hierarchy "BugKiller:inst"
+Warning (10230): Verilog HDL assignment warning at BugKiller.v(15): truncated value with size 32 to match size of target (21)
+Info: Elaborating entity "AngryPuppy" for hierarchy "AngryPuppy:inst1"
+Warning (10240): Verilog HDL Always Construct warning at AngryPuppy.v(6): inferring latch(es) for variable "signal", which holds its previous value in one or more paths through the always construct
+Info (10041): Verilog HDL or VHDL info at AngryPuppy.v(27): inferred latch for "signal[3]"
+Info (10041): Verilog HDL or VHDL info at AngryPuppy.v(27): inferred latch for "signal[2]"
+Info (10041): Verilog HDL or VHDL info at AngryPuppy.v(27): inferred latch for "signal[1]"
+Info (10041): Verilog HDL or VHDL info at AngryPuppy.v(27): inferred latch for "signal[0]"
+Info: Elaborating entity "Gen" for hierarchy "Gen:inst2"
+Warning (10230): Verilog HDL assignment warning at Gen.v(17): truncated value with size 32 to match size of target (21)
+Warning (10230): Verilog HDL assignment warning at Gen.v(22): truncated value with size 32 to match size of target (21)
+Error (10110): Verilog HDL error at Gen.v(6): variable "ti" has mixed blocking and nonblocking Procedural Assignments -- must be all blocking or all nonblocking assignments File: C:/Documents and Settings/dmt/桌面/数电实习版本控制/3/Gen.v Line: 6
+Error: Can't elaborate user hierarchy "Gen:inst2"
+Error: Quartus II Analysis & Synthesis was unsuccessful. 2 errors, 4 warnings
+    Info: Allocated 119 megabytes of memory during processing
+    Error: Processing ended: Mon Jul 01 14:55:29 2013
+    Error: Elapsed time: 00:00:01

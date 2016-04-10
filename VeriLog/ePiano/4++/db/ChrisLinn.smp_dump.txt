@@ -1,0 +1,81 @@
+
+State Machine - |ChrisLinn|BugKiller:inst21|sta
+Name sta.101 sta.001 sta.010 sta.011 sta.100 sta.000 
+sta.000 0 0 0 0 0 0 
+sta.100 0 0 0 0 1 1 
+sta.011 0 0 0 1 0 1 
+sta.010 0 0 1 0 0 1 
+sta.001 0 1 0 0 0 1 
+sta.101 1 0 0 0 0 1 
+
+State Machine - |ChrisLinn|BugKiller:inst20|sta
+Name sta.101 sta.001 sta.010 sta.011 sta.100 sta.000 
+sta.000 0 0 0 0 0 0 
+sta.100 0 0 0 0 1 1 
+sta.011 0 0 0 1 0 1 
+sta.010 0 0 1 0 0 1 
+sta.001 0 1 0 0 0 1 
+sta.101 1 0 0 0 0 1 
+
+State Machine - |ChrisLinn|BugKiller:inst19|sta
+Name sta.101 sta.001 sta.010 sta.011 sta.100 sta.000 
+sta.000 0 0 0 0 0 0 
+sta.100 0 0 0 0 1 1 
+sta.011 0 0 0 1 0 1 
+sta.010 0 0 1 0 0 1 
+sta.001 0 1 0 0 0 1 
+sta.101 1 0 0 0 0 1 
+
+State Machine - |ChrisLinn|BugKiller:inst18|sta
+Name sta.101 sta.001 sta.010 sta.011 sta.100 sta.000 
+sta.000 0 0 0 0 0 0 
+sta.100 0 0 0 0 1 1 
+sta.011 0 0 0 1 0 1 
+sta.010 0 0 1 0 0 1 
+sta.001 0 1 0 0 0 1 
+sta.101 1 0 0 0 0 1 
+
+State Machine - |ChrisLinn|BugKiller:inst17|sta
+Name sta.101 sta.001 sta.010 sta.011 sta.100 sta.000 
+sta.000 0 0 0 0 0 0 
+sta.100 0 0 0 0 1 1 
+sta.011 0 0 0 1 0 1 
+sta.010 0 0 1 0 0 1 
+sta.001 0 1 0 0 0 1 
+sta.101 1 0 0 0 0 1 
+
+State Machine - |ChrisLinn|BugKiller:inst16|sta
+Name sta.101 sta.001 sta.010 sta.011 sta.100 sta.000 
+sta.000 0 0 0 0 0 0 
+sta.100 0 0 0 0 1 1 
+sta.011 0 0 0 1 0 1 
+sta.010 0 0 1 0 0 1 
+sta.001 0 1 0 0 0 1 
+sta.101 1 0 0 0 0 1 
+
+State Machine - |ChrisLinn|BugKiller:inst15|sta
+Name sta.101 sta.001 sta.010 sta.011 sta.100 sta.000 
+sta.000 0 0 0 0 0 0 
+sta.100 0 0 0 0 1 1 
+sta.011 0 0 0 1 0 1 
+sta.010 0 0 1 0 0 1 
+sta.001 0 1 0 0 0 1 
+sta.101 1 0 0 0 0 1 
+
+State Machine - |ChrisLinn|BugKiller:inst14|sta
+Name sta.101 sta.001 sta.010 sta.011 sta.100 sta.000 
+sta.000 0 0 0 0 0 0 
+sta.100 0 0 0 0 1 1 
+sta.011 0 0 0 1 0 1 
+sta.010 0 0 1 0 0 1 
+sta.001 0 1 0 0 0 1 
+sta.101 1 0 0 0 0 1 
+
+State Machine - |ChrisLinn|BugKiller:inst13|sta
+Name sta.101 sta.001 sta.010 sta.011 sta.100 sta.000 
+sta.000 0 0 0 0 0 0 
+sta.100 0 0 0 0 1 1 
+sta.011 0 0 0 1 0 1 
+sta.010 0 0 1 0 0 1 
+sta.001 0 1 0 0 0 1 
+sta.101 1 0 0 0 0 1 

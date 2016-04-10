@@ -1,0 +1,117 @@
+Version 7.0 Build 33 02/05/2007 SJ Full Version
+11
+870
+OFF
+OFF
+OFF
+OFF
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+AngryPuppy
+# storage
+db|ChrisLinn.(0).cnf
+db|ChrisLinn.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+AngryPuppy.v
+a48261b61ab9e491cd22fc803e08be6
+7
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# hierarchies {
+AngryPuppy:inst2
+}
+# end
+# entity
+Gen
+# storage
+db|ChrisLinn.(1).cnf
+db|ChrisLinn.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+Gen.v
+248340aa82b076bb1cb2d393e91ec553
+7
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# hierarchies {
+Gen:inst
+}
+# end
+# entity
+BugKiller
+# storage
+db|ChrisLinn.(3).cnf
+db|ChrisLinn.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+BugKiller.v
+9a4faf2baea60b9b5801bbb76278723
+7
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# hierarchies {
+BugKiller:inst13
+BugKiller:inst14
+BugKiller:inst15
+BugKiller:inst16
+BugKiller:inst17
+BugKiller:inst18
+BugKiller:inst19
+BugKiller:inst20
+BugKiller:inst21
+}
+# end
+# entity
+ChrisLinn
+# storage
+db|ChrisLinn.(2).cnf
+db|ChrisLinn.(2).cnf
+# case_insensitive
+# source_file
+ChrisLinn.bdf
+4e18741bd43b0cabbb85156ddffb7c
+24
+# hierarchies {
+|
+}
+# end
+# complete
+

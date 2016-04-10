@@ -1,0 +1,5 @@
+open 服务器名
+账户
+密码
+get htdocs/1.txt 1.txt
+quit

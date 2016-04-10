@@ -1,0 +1,27 @@
+DATAS SEGMENT
+	X db 68h,24h,90h,57h,13h
+	Y db 67h,34h,12h,90h,57h
+	Z db 5 dup(?)
+	COUNT EQU $-Y
+DATAS ENDS
+
+STACKS SEGMENT
+STACKS ENDS
+
+CODES SEGMENT
+    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+START:
+    MOV AX,DATAS
+    MOV DS,AX
+	mov cx,COUNT
+	mov bx,0
+L1:	mov al,x[bx]
+	ADC al,y[bx]
+	DAA
+	mov Z[bx],al
+	inc bx
+	loop L1
+    MOV AH,4CH
+    INT 21H
+CODES ENDS
+    END START

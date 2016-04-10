@@ -1,0 +1,26 @@
+DATAS SEGMENT
+    X db 32,-43,76,95,-1
+	Y db -78,127,-128,-125,88
+	SUM db 5 dup(?)
+	COUNT EQU $-Y
+DATAS ENDS
+
+STACKS SEGMENT
+STACKS ENDS
+
+CODES SEGMENT
+    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+START:
+    MOV AX,DATAS
+    MOV DS,AX
+	mov cx,COUNT
+	mov bx,0
+L1:	mov al,x[bx]
+	ADD al,y[bx]
+	mov SUM[bx],al
+	inc bx
+	loop L1
+    MOV AH,4CH
+    INT 21H
+CODES ENDS
+    END START

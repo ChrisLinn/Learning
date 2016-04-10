@@ -1,0 +1,25 @@
+syms s;
+r1=2/(s^2);
+r2=2/s+2/s/s+2/s/s/s;
+g1=100/((0.1*s+1)*(s+5));
+g2=50/(s*(0.1*s+1)*(s+5));
+g3=10*(2*s+1)/(s^2*(s^2+6*s+100));
+simplify( s*r1/(1+g1))
+simplify( s*r2/(1+g1))
+simplify( s*r1/(1+g2))
+simplify( s*r2/(1+g2))
+simplify( s*r1/(1+g3))
+simplify( s*r2/(1+g3))
+
+；另外推荐www.wolframalpha.com，比如可以将Matlab返回的函数式输进去看曲线、极限、根，等等。
+
+
+;"-int -frac{1}{(x^3+x^2+x+1)^2} dx - Wolfram-Alpha"
+; http://www.wolframalpha.com/input/?i=%5Cint+%5Cfrac%7B1%7D%7B%28x%5E3%2Bx%5E2%2Bx%2B1%29%5E2%7D+dx 
+;网站www.wolframalpha.com是由Wolfram Research公司推出的一款在线自动问答系统。Wolfram Alpha这一款自动问答系统的特色是可以直接向用户返回答案，
+；而不是像其它搜索引擎一样提供一系列可能含有用户所需答案的相关网页。
+；Wolfram Alpha是基于Wolfram的另一个旗舰产品Mathematica开发的。而且Wolfram|Alpha 的底层运算和数据处理工作就是通过在后台运行的Mathematica实现的。
+；因为Mathematica支持几何、数值以及符号式计算，并且具有强大的数学以及科技图形图像的可视化功能，所以 Wolfram Alpha 能够回答多种多样的数学问题，并将答案以清晰美观的图形化方式显示给用户。
+
+
+

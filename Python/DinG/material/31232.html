@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>我看豆瓣</title>
+<link rel="shortcut icon" href="http://img3.douban.com/pics/douban-icons/favicon_32x32.png" type="image/x-icon" />
+</head>
+<body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+function getData(){
+	alert("js弹");
+	$.getJSON("http://api.douban.com/shuo/v2/statuses/user_timeline/NanderFour?jsoncallback=?",function(data) {
+		$.each(data.items, function(i,item){
+		//$("<img/>").attr("src", item.media.m).appendTo("#images");
+		//if ( i == 3 ) return false;
+		alert(item.title);
+		});
+		});
+	
+
+/*	
+	$.getJSON("http://api.douban.com/shuo/v2/statuses/user_timeline/NanderFour?count=200",function(result){
+	alert('result')
+	//$.each(result, function(i, field){
+	//		$("div").append(field + " ");
+	//	});
+	});	
+
+    var url='http://api.douban.com/shuo/v2/statuses/user_timeline/NanderFour'
+	$.post(url,'',function(msg){
+		var myObject=eval('('+msg+')');//msg为返回的类型为字符串，转化为json对象
+		var str='';
+		var len=myObject.length;
+		for(i=0;i<len;i++){
+			str+='<tr><td>'+myObject[i].name+'</td><td>'+myObject[i].nick+'</td><td>'+myObject[i].contact.website+'</td></tr>';
+		}
+		//$('#feedbackTable').html(str);
+		alert(str)
+	})
+	$.getJSON("http://api.douban.com/shuo/v2/statuses/user_timeline/NanderFour&jsoncallback=?",
+    function (data) {
+        alert(data);
+    }
+	);
+*/
+	alert("2");
+	
+	};
+
+</script>
+<input align="center" id="Button1" type="button" value="js弹" onclick="getData()" />
+<ul id="list"></ul>
+</body></html>

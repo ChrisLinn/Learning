@@ -1,0 +1,862 @@
+Classic Timing Analyzer report for ChrisLinn
+Wed Jul 03 14:11:35 2013
+Quartus II Version 7.0 Build 33 02/05/2007 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clk'
+  6. tsu
+  7. tco
+  8. th
+  9. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                        ;
++------------------------------+-------+---------------+----------------------------------+----------------------+------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                 ; To                     ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+----------------------+------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 9.439 ns                         ; k5                   ; BugKiller:inst17|out   ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 13.691 ns                        ; BugKiller:inst13|out ; yimashuchu[3]          ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -3.463 ns                        ; k1                   ; BugKiller:inst13|ti[9] ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 63.38 MHz ( period = 15.777 ns ) ; Gen:inst|ti[3]       ; Gen:inst|ti[19]        ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                      ;                        ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+----------------------+------------------------+------------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                ; Setting            ; From ; To ; Entity Name ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                           ; EP2C35F484C8       ;      ;    ;             ;
+; Timing Models                                         ; Final              ;      ;    ;             ;
+; Default hold multicycle                               ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements               ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;    ;             ;
+; Number of paths to report                             ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                          ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;    ;             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                 ;
++-----------------------------------------+-----------------------------------------------------+----------------------+-----------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                 ; To              ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+----------------------+-----------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 63.38 MHz ( period = 15.777 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 15.513 ns               ;
+; N/A                                     ; 63.39 MHz ( period = 15.775 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 15.511 ns               ;
+; N/A                                     ; 63.40 MHz ( period = 15.773 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 15.509 ns               ;
+; N/A                                     ; 63.73 MHz ( period = 15.691 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 15.427 ns               ;
+; N/A                                     ; 63.74 MHz ( period = 15.688 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 15.424 ns               ;
+; N/A                                     ; 63.75 MHz ( period = 15.686 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 15.422 ns               ;
+; N/A                                     ; 63.76 MHz ( period = 15.684 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 15.420 ns               ;
+; N/A                                     ; 64.02 MHz ( period = 15.620 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 15.356 ns               ;
+; N/A                                     ; 64.03 MHz ( period = 15.618 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 15.354 ns               ;
+; N/A                                     ; 64.04 MHz ( period = 15.616 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 15.352 ns               ;
+; N/A                                     ; 64.09 MHz ( period = 15.602 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 15.338 ns               ;
+; N/A                                     ; 64.37 MHz ( period = 15.534 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 15.270 ns               ;
+; N/A                                     ; 64.62 MHz ( period = 15.476 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 15.213 ns               ;
+; N/A                                     ; 64.62 MHz ( period = 15.474 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 15.211 ns               ;
+; N/A                                     ; 64.63 MHz ( period = 15.472 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 15.209 ns               ;
+; N/A                                     ; 64.98 MHz ( period = 15.390 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 15.127 ns               ;
+; N/A                                     ; 65.11 MHz ( period = 15.358 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 15.095 ns               ;
+; N/A                                     ; 65.12 MHz ( period = 15.356 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 15.093 ns               ;
+; N/A                                     ; 65.13 MHz ( period = 15.354 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 15.091 ns               ;
+; N/A                                     ; 65.18 MHz ( period = 15.341 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 15.077 ns               ;
+; N/A                                     ; 65.19 MHz ( period = 15.339 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 15.075 ns               ;
+; N/A                                     ; 65.20 MHz ( period = 15.337 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 15.073 ns               ;
+; N/A                                     ; 65.21 MHz ( period = 15.336 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 15.063 ns               ;
+; N/A                                     ; 65.21 MHz ( period = 15.335 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 15.062 ns               ;
+; N/A                                     ; 65.21 MHz ( period = 15.335 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 15.062 ns               ;
+; N/A                                     ; 65.31 MHz ( period = 15.312 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 15.039 ns               ;
+; N/A                                     ; 65.34 MHz ( period = 15.305 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 15.041 ns               ;
+; N/A                                     ; 65.35 MHz ( period = 15.302 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 15.038 ns               ;
+; N/A                                     ; 65.36 MHz ( period = 15.300 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 15.036 ns               ;
+; N/A                                     ; 65.38 MHz ( period = 15.295 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 15.031 ns               ;
+; N/A                                     ; 65.48 MHz ( period = 15.272 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 15.009 ns               ;
+; N/A                                     ; 65.55 MHz ( period = 15.255 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.991 ns               ;
+; N/A                                     ; 65.59 MHz ( period = 15.247 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.974 ns               ;
+; N/A                                     ; 65.59 MHz ( period = 15.246 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.973 ns               ;
+; N/A                                     ; 65.59 MHz ( period = 15.246 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.973 ns               ;
+; N/A                                     ; 65.69 MHz ( period = 15.223 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.950 ns               ;
+; N/A                                     ; 65.72 MHz ( period = 15.216 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.952 ns               ;
+; N/A                                     ; 65.73 MHz ( period = 15.213 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.949 ns               ;
+; N/A                                     ; 65.74 MHz ( period = 15.211 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.947 ns               ;
+; N/A                                     ; 65.76 MHz ( period = 15.206 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.942 ns               ;
+; N/A                                     ; 65.88 MHz ( period = 15.179 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.906 ns               ;
+; N/A                                     ; 65.88 MHz ( period = 15.178 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.905 ns               ;
+; N/A                                     ; 65.88 MHz ( period = 15.178 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.905 ns               ;
+; N/A                                     ; 65.95 MHz ( period = 15.164 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.901 ns               ;
+; N/A                                     ; 65.95 MHz ( period = 15.162 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.899 ns               ;
+; N/A                                     ; 65.96 MHz ( period = 15.160 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.897 ns               ;
+; N/A                                     ; 65.98 MHz ( period = 15.155 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.882 ns               ;
+; N/A                                     ; 66.02 MHz ( period = 15.148 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.884 ns               ;
+; N/A                                     ; 66.03 MHz ( period = 15.145 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.881 ns               ;
+; N/A                                     ; 66.04 MHz ( period = 15.143 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.879 ns               ;
+; N/A                                     ; 66.06 MHz ( period = 15.138 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.874 ns               ;
+; N/A                                     ; 66.17 MHz ( period = 15.112 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.850 ns               ;
+; N/A                                     ; 66.18 MHz ( period = 15.110 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.848 ns               ;
+; N/A                                     ; 66.19 MHz ( period = 15.108 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.846 ns               ;
+; N/A                                     ; 66.25 MHz ( period = 15.094 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.830 ns               ;
+; N/A                                     ; 66.26 MHz ( period = 15.092 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.828 ns               ;
+; N/A                                     ; 66.27 MHz ( period = 15.090 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.826 ns               ;
+; N/A                                     ; 66.32 MHz ( period = 15.078 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.815 ns               ;
+; N/A                                     ; 66.51 MHz ( period = 15.035 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.763 ns               ;
+; N/A                                     ; 66.52 MHz ( period = 15.034 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.762 ns               ;
+; N/A                                     ; 66.52 MHz ( period = 15.034 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.762 ns               ;
+; N/A                                     ; 66.55 MHz ( period = 15.026 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.764 ns               ;
+; N/A                                     ; 66.61 MHz ( period = 15.012 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.750 ns               ;
+; N/A                                     ; 66.62 MHz ( period = 15.011 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.739 ns               ;
+; N/A                                     ; 66.62 MHz ( period = 15.010 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.748 ns               ;
+; N/A                                     ; 66.63 MHz ( period = 15.008 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.746 ns               ;
+; N/A                                     ; 66.63 MHz ( period = 15.008 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.744 ns               ;
+; N/A                                     ; 66.65 MHz ( period = 15.004 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.741 ns               ;
+; N/A                                     ; 66.66 MHz ( period = 15.001 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.738 ns               ;
+; N/A                                     ; 66.67 MHz ( period = 14.999 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.736 ns               ;
+; N/A                                     ; 66.69 MHz ( period = 14.994 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.731 ns               ;
+; N/A                                     ; 66.71 MHz ( period = 14.990 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.728 ns               ;
+; N/A                                     ; 66.72 MHz ( period = 14.988 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.726 ns               ;
+; N/A                                     ; 66.73 MHz ( period = 14.986 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.724 ns               ;
+; N/A                                     ; 66.89 MHz ( period = 14.950 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[12] ; clk        ; clk      ; None                        ; None                      ; 14.686 ns               ;
+; N/A                                     ; 66.89 MHz ( period = 14.950 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[3]  ; clk        ; clk      ; None                        ; None                      ; 14.686 ns               ;
+; N/A                                     ; 66.93 MHz ( period = 14.941 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.678 ns               ;
+; N/A                                     ; 66.94 MHz ( period = 14.939 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.676 ns               ;
+; N/A                                     ; 66.95 MHz ( period = 14.937 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.674 ns               ;
+; N/A                                     ; 67.00 MHz ( period = 14.926 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.664 ns               ;
+; N/A                                     ; 67.04 MHz ( period = 14.917 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.645 ns               ;
+; N/A                                     ; 67.04 MHz ( period = 14.916 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.644 ns               ;
+; N/A                                     ; 67.04 MHz ( period = 14.916 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.644 ns               ;
+; N/A                                     ; 67.10 MHz ( period = 14.904 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.642 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.627 ns               ;
+; N/A                                     ; 67.12 MHz ( period = 14.899 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.626 ns               ;
+; N/A                                     ; 67.12 MHz ( period = 14.899 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.626 ns               ;
+; N/A                                     ; 67.15 MHz ( period = 14.893 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.621 ns               ;
+; N/A                                     ; 67.18 MHz ( period = 14.886 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.623 ns               ;
+; N/A                                     ; 67.19 MHz ( period = 14.883 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.620 ns               ;
+; N/A                                     ; 67.20 MHz ( period = 14.881 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.618 ns               ;
+; N/A                                     ; 67.22 MHz ( period = 14.876 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.603 ns               ;
+; N/A                                     ; 67.22 MHz ( period = 14.876 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.613 ns               ;
+; N/A                                     ; 67.22 MHz ( period = 14.876 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|out    ; clk        ; clk      ; None                        ; None                      ; 14.612 ns               ;
+; N/A                                     ; 67.25 MHz ( period = 14.869 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.605 ns               ;
+; N/A                                     ; 67.27 MHz ( period = 14.866 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.602 ns               ;
+; N/A                                     ; 67.28 MHz ( period = 14.864 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.600 ns               ;
+; N/A                                     ; 67.29 MHz ( period = 14.861 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[12] ; clk        ; clk      ; None                        ; None                      ; 14.597 ns               ;
+; N/A                                     ; 67.29 MHz ( period = 14.861 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[3]  ; clk        ; clk      ; None                        ; None                      ; 14.597 ns               ;
+; N/A                                     ; 67.30 MHz ( period = 14.859 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.595 ns               ;
+; N/A                                     ; 67.32 MHz ( period = 14.855 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.592 ns               ;
+; N/A                                     ; 67.60 MHz ( period = 14.793 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[12] ; clk        ; clk      ; None                        ; None                      ; 14.529 ns               ;
+; N/A                                     ; 67.60 MHz ( period = 14.793 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[3]  ; clk        ; clk      ; None                        ; None                      ; 14.529 ns               ;
+; N/A                                     ; 67.63 MHz ( period = 14.787 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|out    ; clk        ; clk      ; None                        ; None                      ; 14.523 ns               ;
+; N/A                                     ; 67.87 MHz ( period = 14.735 ns )                    ; BugKiller:inst13|out ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.450 ns               ;
+; N/A                                     ; 67.87 MHz ( period = 14.733 ns )                    ; BugKiller:inst13|out ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.448 ns               ;
+; N/A                                     ; 67.88 MHz ( period = 14.731 ns )                    ; BugKiller:inst13|out ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.446 ns               ;
+; N/A                                     ; 67.92 MHz ( period = 14.723 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.451 ns               ;
+; N/A                                     ; 67.93 MHz ( period = 14.722 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.450 ns               ;
+; N/A                                     ; 67.93 MHz ( period = 14.722 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.450 ns               ;
+; N/A                                     ; 67.94 MHz ( period = 14.719 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|out    ; clk        ; clk      ; None                        ; None                      ; 14.455 ns               ;
+; N/A                                     ; 68.03 MHz ( period = 14.699 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.427 ns               ;
+; N/A                                     ; 68.06 MHz ( period = 14.692 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.429 ns               ;
+; N/A                                     ; 68.08 MHz ( period = 14.689 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.426 ns               ;
+; N/A                                     ; 68.09 MHz ( period = 14.687 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.424 ns               ;
+; N/A                                     ; 68.10 MHz ( period = 14.685 ns )                    ; BugKiller:inst14|out ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.456 ns               ;
+; N/A                                     ; 68.11 MHz ( period = 14.683 ns )                    ; BugKiller:inst14|out ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.454 ns               ;
+; N/A                                     ; 68.11 MHz ( period = 14.682 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.419 ns               ;
+; N/A                                     ; 68.12 MHz ( period = 14.681 ns )                    ; BugKiller:inst14|out ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.452 ns               ;
+; N/A                                     ; 68.16 MHz ( period = 14.671 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.400 ns               ;
+; N/A                                     ; 68.17 MHz ( period = 14.670 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.399 ns               ;
+; N/A                                     ; 68.17 MHz ( period = 14.670 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.399 ns               ;
+; N/A                                     ; 68.25 MHz ( period = 14.653 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.380 ns               ;
+; N/A                                     ; 68.25 MHz ( period = 14.652 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.379 ns               ;
+; N/A                                     ; 68.25 MHz ( period = 14.652 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.379 ns               ;
+; N/A                                     ; 68.26 MHz ( period = 14.649 ns )                    ; BugKiller:inst13|out ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.364 ns               ;
+; N/A                                     ; 68.26 MHz ( period = 14.649 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[12] ; clk        ; clk      ; None                        ; None                      ; 14.386 ns               ;
+; N/A                                     ; 68.26 MHz ( period = 14.649 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|ti[3]  ; clk        ; clk      ; None                        ; None                      ; 14.386 ns               ;
+; N/A                                     ; 68.27 MHz ( period = 14.647 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.376 ns               ;
+; N/A                                     ; 68.31 MHz ( period = 14.640 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.378 ns               ;
+; N/A                                     ; 68.32 MHz ( period = 14.638 ns )                    ; Gen:inst|ti[15]      ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.383 ns               ;
+; N/A                                     ; 68.32 MHz ( period = 14.637 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.375 ns               ;
+; N/A                                     ; 68.32 MHz ( period = 14.636 ns )                    ; Gen:inst|ti[15]      ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.381 ns               ;
+; N/A                                     ; 68.33 MHz ( period = 14.635 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.373 ns               ;
+; N/A                                     ; 68.33 MHz ( period = 14.634 ns )                    ; Gen:inst|ti[15]      ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.379 ns               ;
+; N/A                                     ; 68.35 MHz ( period = 14.630 ns )                    ; Gen:inst|ti[6]       ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.368 ns               ;
+; N/A                                     ; 68.36 MHz ( period = 14.629 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.356 ns               ;
+; N/A                                     ; 68.39 MHz ( period = 14.622 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.358 ns               ;
+; N/A                                     ; 68.40 MHz ( period = 14.619 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.355 ns               ;
+; N/A                                     ; 68.41 MHz ( period = 14.617 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.353 ns               ;
+; N/A                                     ; 68.44 MHz ( period = 14.612 ns )                    ; Gen:inst|ti[10]      ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.348 ns               ;
+; N/A                                     ; 68.50 MHz ( period = 14.599 ns )                    ; BugKiller:inst14|out ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.370 ns               ;
+; N/A                                     ; 68.61 MHz ( period = 14.575 ns )                    ; Gen:inst|ti[0]       ; Gen:inst|out    ; clk        ; clk      ; None                        ; None                      ; 14.312 ns               ;
+; N/A                                     ; 68.63 MHz ( period = 14.571 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.300 ns               ;
+; N/A                                     ; 68.63 MHz ( period = 14.570 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.299 ns               ;
+; N/A                                     ; 68.63 MHz ( period = 14.570 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.299 ns               ;
+; N/A                                     ; 68.72 MHz ( period = 14.552 ns )                    ; Gen:inst|ti[15]      ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.297 ns               ;
+; N/A                                     ; 68.73 MHz ( period = 14.549 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.278 ns               ;
+; N/A                                     ; 68.74 MHz ( period = 14.548 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.277 ns               ;
+; N/A                                     ; 68.74 MHz ( period = 14.548 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.277 ns               ;
+; N/A                                     ; 68.74 MHz ( period = 14.547 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.276 ns               ;
+; N/A                                     ; 68.76 MHz ( period = 14.543 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[7]  ; clk        ; clk      ; None                        ; None                      ; 14.277 ns               ;
+; N/A                                     ; 68.77 MHz ( period = 14.541 ns )                    ; BugKiller:inst15|out ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.317 ns               ;
+; N/A                                     ; 68.77 MHz ( period = 14.541 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[11] ; clk        ; clk      ; None                        ; None                      ; 14.275 ns               ;
+; N/A                                     ; 68.78 MHz ( period = 14.540 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.278 ns               ;
+; N/A                                     ; 68.78 MHz ( period = 14.540 ns )                    ; Gen:inst|ti[3]       ; Gen:inst|ti[6]  ; clk        ; clk      ; None                        ; None                      ; 14.274 ns               ;
+; N/A                                     ; 68.78 MHz ( period = 14.539 ns )                    ; BugKiller:inst15|out ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.315 ns               ;
+; N/A                                     ; 68.79 MHz ( period = 14.537 ns )                    ; BugKiller:inst15|out ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.313 ns               ;
+; N/A                                     ; 68.79 MHz ( period = 14.537 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.275 ns               ;
+; N/A                                     ; 68.80 MHz ( period = 14.535 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.273 ns               ;
+; N/A                                     ; 68.82 MHz ( period = 14.531 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[12] ; clk        ; clk      ; None                        ; None                      ; 14.268 ns               ;
+; N/A                                     ; 68.82 MHz ( period = 14.531 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|ti[3]  ; clk        ; clk      ; None                        ; None                      ; 14.268 ns               ;
+; N/A                                     ; 68.82 MHz ( period = 14.530 ns )                    ; Gen:inst|ti[11]      ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.268 ns               ;
+; N/A                                     ; 68.85 MHz ( period = 14.525 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.254 ns               ;
+; N/A                                     ; 68.88 MHz ( period = 14.518 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.256 ns               ;
+; N/A                                     ; 68.89 MHz ( period = 14.515 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.253 ns               ;
+; N/A                                     ; 68.90 MHz ( period = 14.514 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[12] ; clk        ; clk      ; None                        ; None                      ; 14.250 ns               ;
+; N/A                                     ; 68.90 MHz ( period = 14.514 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|ti[3]  ; clk        ; clk      ; None                        ; None                      ; 14.250 ns               ;
+; N/A                                     ; 68.90 MHz ( period = 14.513 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.251 ns               ;
+; N/A                                     ; 68.93 MHz ( period = 14.508 ns )                    ; Gen:inst|ti[7]       ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.246 ns               ;
+; N/A                                     ; 68.94 MHz ( period = 14.505 ns )                    ; Gen:inst|ti[16]      ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.250 ns               ;
+; N/A                                     ; 68.95 MHz ( period = 14.503 ns )                    ; Gen:inst|ti[16]      ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.248 ns               ;
+; N/A                                     ; 68.96 MHz ( period = 14.501 ns )                    ; Gen:inst|ti[16]      ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.246 ns               ;
+; N/A                                     ; 68.97 MHz ( period = 14.500 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[18] ; clk        ; clk      ; None                        ; None                      ; 14.228 ns               ;
+; N/A                                     ; 68.97 MHz ( period = 14.499 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[15] ; clk        ; clk      ; None                        ; None                      ; 14.227 ns               ;
+; N/A                                     ; 68.97 MHz ( period = 14.499 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[17] ; clk        ; clk      ; None                        ; None                      ; 14.227 ns               ;
+; N/A                                     ; 69.08 MHz ( period = 14.477 ns )                    ; Gen:inst|ti[17]      ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.222 ns               ;
+; N/A                                     ; 69.08 MHz ( period = 14.476 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[16] ; clk        ; clk      ; None                        ; None                      ; 14.204 ns               ;
+; N/A                                     ; 69.08 MHz ( period = 14.475 ns )                    ; Gen:inst|ti[17]      ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.220 ns               ;
+; N/A                                     ; 69.09 MHz ( period = 14.473 ns )                    ; Gen:inst|ti[17]      ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.218 ns               ;
+; N/A                                     ; 69.11 MHz ( period = 14.469 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[9]  ; clk        ; clk      ; None                        ; None                      ; 14.206 ns               ;
+; N/A                                     ; 69.13 MHz ( period = 14.466 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[10] ; clk        ; clk      ; None                        ; None                      ; 14.203 ns               ;
+; N/A                                     ; 69.14 MHz ( period = 14.464 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[4]  ; clk        ; clk      ; None                        ; None                      ; 14.201 ns               ;
+; N/A                                     ; 69.16 MHz ( period = 14.459 ns )                    ; Gen:inst|ti[8]       ; Gen:inst|ti[5]  ; clk        ; clk      ; None                        ; None                      ; 14.196 ns               ;
+; N/A                                     ; 69.17 MHz ( period = 14.457 ns )                    ; Gen:inst|ti[1]       ; Gen:inst|out    ; clk        ; clk      ; None                        ; None                      ; 14.194 ns               ;
+; N/A                                     ; 69.18 MHz ( period = 14.455 ns )                    ; BugKiller:inst15|out ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.231 ns               ;
+; N/A                                     ; 69.19 MHz ( period = 14.454 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[7]  ; clk        ; clk      ; None                        ; None                      ; 14.188 ns               ;
+; N/A                                     ; 69.19 MHz ( period = 14.452 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[11] ; clk        ; clk      ; None                        ; None                      ; 14.186 ns               ;
+; N/A                                     ; 69.20 MHz ( period = 14.451 ns )                    ; Gen:inst|ti[4]       ; Gen:inst|ti[6]  ; clk        ; clk      ; None                        ; None                      ; 14.185 ns               ;
+; N/A                                     ; 69.23 MHz ( period = 14.444 ns )                    ; Gen:inst|ti[13]      ; Gen:inst|ti[19] ; clk        ; clk      ; None                        ; None                      ; 14.180 ns               ;
+; N/A                                     ; 69.24 MHz ( period = 14.442 ns )                    ; Gen:inst|ti[13]      ; Gen:inst|ti[14] ; clk        ; clk      ; None                        ; None                      ; 14.178 ns               ;
+; N/A                                     ; 69.25 MHz ( period = 14.440 ns )                    ; Gen:inst|ti[13]      ; Gen:inst|ti[20] ; clk        ; clk      ; None                        ; None                      ; 14.176 ns               ;
+; N/A                                     ; 69.25 MHz ( period = 14.440 ns )                    ; Gen:inst|ti[9]       ; Gen:inst|out    ; clk        ; clk      ; None                        ; None                      ; 14.176 ns               ;
+; N/A                                     ; 69.35 MHz ( period = 14.419 ns )                    ; Gen:inst|ti[16]      ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.164 ns               ;
+; N/A                                     ; 69.49 MHz ( period = 14.391 ns )                    ; Gen:inst|ti[17]      ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.136 ns               ;
+; N/A                                     ; 69.51 MHz ( period = 14.386 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[7]  ; clk        ; clk      ; None                        ; None                      ; 14.120 ns               ;
+; N/A                                     ; 69.52 MHz ( period = 14.384 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[11] ; clk        ; clk      ; None                        ; None                      ; 14.118 ns               ;
+; N/A                                     ; 69.53 MHz ( period = 14.383 ns )                    ; Gen:inst|ti[5]       ; Gen:inst|ti[6]  ; clk        ; clk      ; None                        ; None                      ; 14.117 ns               ;
+; N/A                                     ; 69.65 MHz ( period = 14.358 ns )                    ; Gen:inst|ti[13]      ; Gen:inst|ti[13] ; clk        ; clk      ; None                        ; None                      ; 14.094 ns               ;
+; N/A                                     ; 69.75 MHz ( period = 14.337 ns )                    ; Gen:inst|ti[2]       ; Gen:inst|ti[12] ; clk        ; clk      ; None                        ; None                      ; 14.074 ns               ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                      ;                 ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+----------------------+-----------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                     ;
++-----------------------------------------+-----------------------------------------------------+------------+------+--------------------------+----------+
+; Slack                                   ; Required tsu                                        ; Actual tsu ; From ; To                       ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+------+--------------------------+----------+
+; N/A                                     ; None                                                ; 9.439 ns   ; k5   ; BugKiller:inst17|out     ; clk      ;
+; N/A                                     ; None                                                ; 8.871 ns   ; k6   ; BugKiller:inst18|out     ; clk      ;
+; N/A                                     ; None                                                ; 7.181 ns   ; k4   ; BugKiller:inst16|out     ; clk      ;
+; N/A                                     ; None                                                ; 6.931 ns   ; k7   ; BugKiller:inst19|out     ; clk      ;
+; N/A                                     ; None                                                ; 6.699 ns   ; hK   ; BugKiller:inst20|out     ; clk      ;
+; N/A                                     ; None                                                ; 6.636 ns   ; lK   ; BugKiller:inst21|out     ; clk      ;
+; N/A                                     ; None                                                ; 6.146 ns   ; k2   ; BugKiller:inst14|out     ; clk      ;
+; N/A                                     ; None                                                ; 6.064 ns   ; k3   ; BugKiller:inst15|out     ; clk      ;
+; N/A                                     ; None                                                ; 5.733 ns   ; hK   ; BugKiller:inst20|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; 5.728 ns   ; hK   ; BugKiller:inst20|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; 5.455 ns   ; k6   ; BugKiller:inst18|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; 5.454 ns   ; k6   ; BugKiller:inst18|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; 5.430 ns   ; hK   ; BugKiller:inst20|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; 5.430 ns   ; hK   ; BugKiller:inst20|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; 5.429 ns   ; hK   ; BugKiller:inst20|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; 5.428 ns   ; hK   ; BugKiller:inst20|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; 5.426 ns   ; hK   ; BugKiller:inst20|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; 5.424 ns   ; hK   ; BugKiller:inst20|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; 5.421 ns   ; hK   ; BugKiller:inst20|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; 5.358 ns   ; k5   ; BugKiller:inst17|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; 5.356 ns   ; k5   ; BugKiller:inst17|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; 5.352 ns   ; k5   ; BugKiller:inst17|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; 5.283 ns   ; k1   ; BugKiller:inst13|out     ; clk      ;
+; N/A                                     ; None                                                ; 5.261 ns   ; hK   ; BugKiller:inst20|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; 5.261 ns   ; hK   ; BugKiller:inst20|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; 5.261 ns   ; hK   ; BugKiller:inst20|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; 5.260 ns   ; hK   ; BugKiller:inst20|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; 5.258 ns   ; hK   ; BugKiller:inst20|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; 5.245 ns   ; k2   ; BugKiller:inst14|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; 5.244 ns   ; k3   ; BugKiller:inst15|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; 5.242 ns   ; k3   ; BugKiller:inst15|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; 5.241 ns   ; k3   ; BugKiller:inst15|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; 5.241 ns   ; k3   ; BugKiller:inst15|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; 5.238 ns   ; k3   ; BugKiller:inst15|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; 5.236 ns   ; hK   ; BugKiller:inst20|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; 5.235 ns   ; k3   ; BugKiller:inst15|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; 5.235 ns   ; k3   ; BugKiller:inst15|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; 5.230 ns   ; hK   ; BugKiller:inst20|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; 5.201 ns   ; k3   ; BugKiller:inst15|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; 5.193 ns   ; k2   ; BugKiller:inst14|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; 5.188 ns   ; k2   ; BugKiller:inst14|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; 5.186 ns   ; k6   ; BugKiller:inst18|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; 5.184 ns   ; k6   ; BugKiller:inst18|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; 5.180 ns   ; k6   ; BugKiller:inst18|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; 5.178 ns   ; k6   ; BugKiller:inst18|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; 5.178 ns   ; k6   ; BugKiller:inst18|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; 5.176 ns   ; k6   ; BugKiller:inst18|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; 5.143 ns   ; k2   ; BugKiller:inst14|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; 5.090 ns   ; k6   ; BugKiller:inst18|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; 5.057 ns   ; k5   ; BugKiller:inst17|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; 5.055 ns   ; k5   ; BugKiller:inst17|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; 5.052 ns   ; k5   ; BugKiller:inst17|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; 5.048 ns   ; k5   ; BugKiller:inst17|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; 5.047 ns   ; k5   ; BugKiller:inst17|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; 5.041 ns   ; hK   ; BugKiller:inst20|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; 5.041 ns   ; hK   ; BugKiller:inst20|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; 5.040 ns   ; hK   ; BugKiller:inst20|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; 5.039 ns   ; hK   ; BugKiller:inst20|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; 5.039 ns   ; hK   ; BugKiller:inst20|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; 5.038 ns   ; hK   ; BugKiller:inst20|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; 4.926 ns   ; k3   ; BugKiller:inst15|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; 4.925 ns   ; k3   ; BugKiller:inst15|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; 4.917 ns   ; k5   ; BugKiller:inst17|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; 4.915 ns   ; k5   ; BugKiller:inst17|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; 4.892 ns   ; k2   ; BugKiller:inst14|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; 4.892 ns   ; k2   ; BugKiller:inst14|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; 4.891 ns   ; k2   ; BugKiller:inst14|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; 4.889 ns   ; k2   ; BugKiller:inst14|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; 4.887 ns   ; k2   ; BugKiller:inst14|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; 4.876 ns   ; k5   ; BugKiller:inst17|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; 4.871 ns   ; k2   ; BugKiller:inst14|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; 4.869 ns   ; k2   ; BugKiller:inst14|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; 4.856 ns   ; lK   ; BugKiller:inst21|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; 4.849 ns   ; k3   ; BugKiller:inst15|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; 4.849 ns   ; k3   ; BugKiller:inst15|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; 4.848 ns   ; k3   ; BugKiller:inst15|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; 4.846 ns   ; k3   ; BugKiller:inst15|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; 4.844 ns   ; k3   ; BugKiller:inst15|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; 4.842 ns   ; k3   ; BugKiller:inst15|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; 4.837 ns   ; k5   ; BugKiller:inst17|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; 4.836 ns   ; k3   ; BugKiller:inst15|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; 4.836 ns   ; k5   ; BugKiller:inst17|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; 4.833 ns   ; k3   ; BugKiller:inst15|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; 4.820 ns   ; hK   ; BugKiller:inst20|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; 4.819 ns   ; k2   ; BugKiller:inst14|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; 4.819 ns   ; k2   ; BugKiller:inst14|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; 4.818 ns   ; k2   ; BugKiller:inst14|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; 4.817 ns   ; k2   ; BugKiller:inst14|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; 4.817 ns   ; k2   ; BugKiller:inst14|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; 4.817 ns   ; k2   ; BugKiller:inst14|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; 4.815 ns   ; hK   ; BugKiller:inst20|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; 4.811 ns   ; k2   ; BugKiller:inst14|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; 4.787 ns   ; k6   ; BugKiller:inst18|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; 4.786 ns   ; k6   ; BugKiller:inst18|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; 4.785 ns   ; k6   ; BugKiller:inst18|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; 4.750 ns   ; k4   ; BugKiller:inst16|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; 4.732 ns   ; lK   ; BugKiller:inst21|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; 4.713 ns   ; k6   ; BugKiller:inst18|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; 4.712 ns   ; k7   ; BugKiller:inst19|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; 4.711 ns   ; k7   ; BugKiller:inst19|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; 4.711 ns   ; k7   ; BugKiller:inst19|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; 4.709 ns   ; k4   ; BugKiller:inst16|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; 4.709 ns   ; k7   ; BugKiller:inst19|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; 4.708 ns   ; k7   ; BugKiller:inst19|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; 4.706 ns   ; k7   ; BugKiller:inst19|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; 4.701 ns   ; k7   ; BugKiller:inst19|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; 4.699 ns   ; k7   ; BugKiller:inst19|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; 4.692 ns   ; k7   ; BugKiller:inst19|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; 4.690 ns   ; k4   ; BugKiller:inst16|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; 4.687 ns   ; k4   ; BugKiller:inst16|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; 4.679 ns   ; k6   ; BugKiller:inst18|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; 4.677 ns   ; k6   ; BugKiller:inst18|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; 4.671 ns   ; k7   ; BugKiller:inst19|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; 4.658 ns   ; k7   ; BugKiller:inst19|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; 4.657 ns   ; k7   ; BugKiller:inst19|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; 4.655 ns   ; k7   ; BugKiller:inst19|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; 4.651 ns   ; k7   ; BugKiller:inst19|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; 4.595 ns   ; k2   ; BugKiller:inst14|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; 4.588 ns   ; k2   ; BugKiller:inst14|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; 4.584 ns   ; k3   ; BugKiller:inst15|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; 4.583 ns   ; k3   ; BugKiller:inst15|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; 4.583 ns   ; k3   ; BugKiller:inst15|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; 4.582 ns   ; k3   ; BugKiller:inst15|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; 4.581 ns   ; k3   ; BugKiller:inst15|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; 4.580 ns   ; k3   ; BugKiller:inst15|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; 4.536 ns   ; k4   ; BugKiller:inst16|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; 4.525 ns   ; lK   ; BugKiller:inst21|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; 4.524 ns   ; lK   ; BugKiller:inst21|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; 4.523 ns   ; lK   ; BugKiller:inst21|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; 4.522 ns   ; lK   ; BugKiller:inst21|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; 4.522 ns   ; lK   ; BugKiller:inst21|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; 4.521 ns   ; lK   ; BugKiller:inst21|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; 4.484 ns   ; k4   ; BugKiller:inst16|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; 4.483 ns   ; k4   ; BugKiller:inst16|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; 4.483 ns   ; k4   ; BugKiller:inst16|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; 4.482 ns   ; k4   ; BugKiller:inst16|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; 4.482 ns   ; k4   ; BugKiller:inst16|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; 4.478 ns   ; k4   ; BugKiller:inst16|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; 4.473 ns   ; lK   ; BugKiller:inst21|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; 4.472 ns   ; lK   ; BugKiller:inst21|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; 4.472 ns   ; lK   ; BugKiller:inst21|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; 4.471 ns   ; lK   ; BugKiller:inst21|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; 4.471 ns   ; lK   ; BugKiller:inst21|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; 4.469 ns   ; lK   ; BugKiller:inst21|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; 4.469 ns   ; lK   ; BugKiller:inst21|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; 4.464 ns   ; k7   ; BugKiller:inst19|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; 4.464 ns   ; k7   ; BugKiller:inst19|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; 4.463 ns   ; k7   ; BugKiller:inst19|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; 4.462 ns   ; k7   ; BugKiller:inst19|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; 4.461 ns   ; k7   ; BugKiller:inst19|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; 4.452 ns   ; k4   ; BugKiller:inst16|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; 4.451 ns   ; k4   ; BugKiller:inst16|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; 4.449 ns   ; k4   ; BugKiller:inst16|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; 4.449 ns   ; k4   ; BugKiller:inst16|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; 4.448 ns   ; k4   ; BugKiller:inst16|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; 4.447 ns   ; k4   ; BugKiller:inst16|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; 4.446 ns   ; k5   ; BugKiller:inst17|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; 4.445 ns   ; k5   ; BugKiller:inst17|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; 4.444 ns   ; k5   ; BugKiller:inst17|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; 4.440 ns   ; k4   ; BugKiller:inst16|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; 4.429 ns   ; k2   ; BugKiller:inst14|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; 4.429 ns   ; k2   ; BugKiller:inst14|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; 4.428 ns   ; k2   ; BugKiller:inst14|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; 4.426 ns   ; k2   ; BugKiller:inst14|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; 4.407 ns   ; k5   ; BugKiller:inst17|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; 4.406 ns   ; k5   ; BugKiller:inst17|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; 4.404 ns   ; k5   ; BugKiller:inst17|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; 4.403 ns   ; k5   ; BugKiller:inst17|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; 4.386 ns   ; k4   ; BugKiller:inst16|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; 4.382 ns   ; lK   ; BugKiller:inst21|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; 4.381 ns   ; lK   ; BugKiller:inst21|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; 4.380 ns   ; lK   ; BugKiller:inst21|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; 4.379 ns   ; lK   ; BugKiller:inst21|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; 4.378 ns   ; lK   ; BugKiller:inst21|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; 4.376 ns   ; lK   ; BugKiller:inst21|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; 4.375 ns   ; lK   ; BugKiller:inst21|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; 4.367 ns   ; k5   ; BugKiller:inst17|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; 4.365 ns   ; k5   ; BugKiller:inst17|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; 4.364 ns   ; k5   ; BugKiller:inst17|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; 4.363 ns   ; k5   ; BugKiller:inst17|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; 4.332 ns   ; k4   ; BugKiller:inst16|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; 4.332 ns   ; k4   ; BugKiller:inst16|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; 4.332 ns   ; k4   ; BugKiller:inst16|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; 4.332 ns   ; k4   ; BugKiller:inst16|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; 4.330 ns   ; k4   ; BugKiller:inst16|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; 4.304 ns   ; k1   ; BugKiller:inst13|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; 4.293 ns   ; k1   ; BugKiller:inst13|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; 4.290 ns   ; k1   ; BugKiller:inst13|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; 4.270 ns   ; k1   ; BugKiller:inst13|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; 4.262 ns   ; lK   ; BugKiller:inst21|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; 4.262 ns   ; lK   ; BugKiller:inst21|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; 4.260 ns   ; k7   ; BugKiller:inst19|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; 4.259 ns   ; k7   ; BugKiller:inst19|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; 4.259 ns   ; k7   ; BugKiller:inst19|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; 4.258 ns   ; k1   ; BugKiller:inst13|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; 4.256 ns   ; k7   ; BugKiller:inst19|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; 4.256 ns   ; k7   ; BugKiller:inst19|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; 4.245 ns   ; k6   ; BugKiller:inst18|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; 4.245 ns   ; k6   ; BugKiller:inst18|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; 4.241 ns   ; k6   ; BugKiller:inst18|ti[6]   ; clk      ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;      ;                          ;          ;
++-----------------------------------------+-----------------------------------------------------+------------+------+--------------------------+----------+
+
+
++---------------------------------------------------------------------------------------+
+; tco                                                                                   ;
++-------+--------------+------------+----------------------+---------------+------------+
+; Slack ; Required tco ; Actual tco ; From                 ; To            ; From Clock ;
++-------+--------------+------------+----------------------+---------------+------------+
+; N/A   ; None         ; 13.691 ns  ; BugKiller:inst13|out ; yimashuchu[3] ; clk        ;
+; N/A   ; None         ; 13.305 ns  ; BugKiller:inst15|out ; yimashuchu[3] ; clk        ;
+; N/A   ; None         ; 13.274 ns  ; BugKiller:inst13|out ; yimashuchu[4] ; clk        ;
+; N/A   ; None         ; 13.216 ns  ; BugKiller:inst14|out ; yimashuchu[3] ; clk        ;
+; N/A   ; None         ; 12.890 ns  ; BugKiller:inst13|out ; yimashuchu[2] ; clk        ;
+; N/A   ; None         ; 12.888 ns  ; BugKiller:inst15|out ; yimashuchu[4] ; clk        ;
+; N/A   ; None         ; 12.799 ns  ; BugKiller:inst14|out ; yimashuchu[4] ; clk        ;
+; N/A   ; None         ; 12.773 ns  ; BugKiller:inst13|out ; yimashuchu[1] ; clk        ;
+; N/A   ; None         ; 12.723 ns  ; BugKiller:inst14|out ; yimashuchu[1] ; clk        ;
+; N/A   ; None         ; 12.579 ns  ; BugKiller:inst15|out ; yimashuchu[1] ; clk        ;
+; N/A   ; None         ; 12.504 ns  ; BugKiller:inst15|out ; yimashuchu[2] ; clk        ;
+; N/A   ; None         ; 12.415 ns  ; BugKiller:inst14|out ; yimashuchu[2] ; clk        ;
+; N/A   ; None         ; 12.262 ns  ; BugKiller:inst20|out ; yimashuchu[4] ; clk        ;
+; N/A   ; None         ; 12.081 ns  ; BugKiller:inst20|out ; yimashuchu[3] ; clk        ;
+; N/A   ; None         ; 12.000 ns  ; BugKiller:inst13|out ; yimashuchu[0] ; clk        ;
+; N/A   ; None         ; 11.693 ns  ; BugKiller:inst15|out ; yimashuchu[0] ; clk        ;
+; N/A   ; None         ; 11.525 ns  ; BugKiller:inst14|out ; yimashuchu[0] ; clk        ;
+; N/A   ; None         ; 11.411 ns  ; BugKiller:inst16|out ; yimashuchu[3] ; clk        ;
+; N/A   ; None         ; 11.310 ns  ; BugKiller:inst18|out ; yimashuchu[1] ; clk        ;
+; N/A   ; None         ; 11.310 ns  ; BugKiller:inst17|out ; yimashuchu[3] ; clk        ;
+; N/A   ; None         ; 11.151 ns  ; BugKiller:inst21|out ; yimashuchu[3] ; clk        ;
+; N/A   ; None         ; 11.130 ns  ; BugKiller:inst17|out ; yimashuchu[1] ; clk        ;
+; N/A   ; None         ; 11.109 ns  ; BugKiller:inst18|out ; yimashuchu[3] ; clk        ;
+; N/A   ; None         ; 11.031 ns  ; BugKiller:inst18|out ; yimashuchu[4] ; clk        ;
+; N/A   ; None         ; 10.994 ns  ; BugKiller:inst16|out ; yimashuchu[4] ; clk        ;
+; N/A   ; None         ; 10.935 ns  ; BugKiller:inst19|out ; yimashuchu[3] ; clk        ;
+; N/A   ; None         ; 10.851 ns  ; BugKiller:inst17|out ; yimashuchu[4] ; clk        ;
+; N/A   ; None         ; 10.806 ns  ; BugKiller:inst16|out ; yimashuchu[1] ; clk        ;
+; N/A   ; None         ; 10.764 ns  ; BugKiller:inst16|out ; yimashuchu[0] ; clk        ;
+; N/A   ; None         ; 10.719 ns  ; BugKiller:inst17|out ; yimashuchu[0] ; clk        ;
+; N/A   ; None         ; 10.610 ns  ; BugKiller:inst16|out ; yimashuchu[2] ; clk        ;
+; N/A   ; None         ; 10.475 ns  ; BugKiller:inst18|out ; yimashuchu[0] ; clk        ;
+; N/A   ; None         ; 10.311 ns  ; BugKiller:inst19|out ; yimashuchu[0] ; clk        ;
+; N/A   ; None         ; 10.218 ns  ; BugKiller:inst19|out ; yimashuchu[4] ; clk        ;
+; N/A   ; None         ; 9.142 ns   ; Gen:inst|out         ; out           ; clk        ;
+; N/A   ; None         ; 9.115 ns   ; BugKiller:inst13|out ; bugO          ; clk        ;
++-------+--------------+------------+----------------------+---------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                     ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+--------------------------+----------+
+; Minimum Slack                           ; Required th                                         ; Actual th ; From ; To                       ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+--------------------------+----------+
+; N/A                                     ; None                                                ; -3.463 ns ; k1   ; BugKiller:inst13|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; -3.464 ns ; k1   ; BugKiller:inst13|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; -3.488 ns ; k1   ; BugKiller:inst13|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; -3.488 ns ; k1   ; BugKiller:inst13|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; -3.490 ns ; k1   ; BugKiller:inst13|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; -3.491 ns ; k1   ; BugKiller:inst13|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; -3.492 ns ; k1   ; BugKiller:inst13|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; -3.692 ns ; k1   ; BugKiller:inst13|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; -3.695 ns ; k1   ; BugKiller:inst13|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; -3.696 ns ; k1   ; BugKiller:inst13|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; -3.696 ns ; k1   ; BugKiller:inst13|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; -3.699 ns ; k1   ; BugKiller:inst13|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; -3.700 ns ; k1   ; BugKiller:inst13|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; -3.700 ns ; k1   ; BugKiller:inst13|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; -3.730 ns ; k1   ; BugKiller:inst13|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; -3.731 ns ; k1   ; BugKiller:inst13|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; -3.734 ns ; k1   ; BugKiller:inst13|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; -3.872 ns ; k1   ; BugKiller:inst13|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; -3.887 ns ; k1   ; BugKiller:inst13|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; -3.971 ns ; k6   ; BugKiller:inst18|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; -3.971 ns ; k6   ; BugKiller:inst18|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; -3.972 ns ; k6   ; BugKiller:inst18|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; -3.973 ns ; k6   ; BugKiller:inst18|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; -3.974 ns ; k6   ; BugKiller:inst18|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; -3.975 ns ; k6   ; BugKiller:inst18|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; -3.975 ns ; k6   ; BugKiller:inst18|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; -3.979 ns ; k6   ; BugKiller:inst18|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; -3.979 ns ; k6   ; BugKiller:inst18|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; -3.990 ns ; k7   ; BugKiller:inst19|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; -3.990 ns ; k7   ; BugKiller:inst19|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; -3.992 ns ; k1   ; BugKiller:inst13|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; -3.993 ns ; k7   ; BugKiller:inst19|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; -3.993 ns ; k7   ; BugKiller:inst19|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; -3.994 ns ; k7   ; BugKiller:inst19|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; -3.996 ns ; lK   ; BugKiller:inst21|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; -3.996 ns ; lK   ; BugKiller:inst21|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; -4.004 ns ; k1   ; BugKiller:inst13|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; -4.024 ns ; k1   ; BugKiller:inst13|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; -4.027 ns ; k1   ; BugKiller:inst13|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; -4.038 ns ; k1   ; BugKiller:inst13|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; -4.064 ns ; k4   ; BugKiller:inst16|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; -4.066 ns ; k4   ; BugKiller:inst16|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; -4.066 ns ; k4   ; BugKiller:inst16|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; -4.066 ns ; k4   ; BugKiller:inst16|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; -4.066 ns ; k4   ; BugKiller:inst16|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; -4.097 ns ; k5   ; BugKiller:inst17|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; -4.098 ns ; k5   ; BugKiller:inst17|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; -4.099 ns ; k5   ; BugKiller:inst17|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; -4.101 ns ; k5   ; BugKiller:inst17|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; -4.109 ns ; lK   ; BugKiller:inst21|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; -4.110 ns ; lK   ; BugKiller:inst21|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; -4.112 ns ; lK   ; BugKiller:inst21|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; -4.113 ns ; lK   ; BugKiller:inst21|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; -4.114 ns ; lK   ; BugKiller:inst21|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; -4.115 ns ; lK   ; BugKiller:inst21|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; -4.116 ns ; lK   ; BugKiller:inst21|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; -4.120 ns ; k4   ; BugKiller:inst16|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; -4.137 ns ; k5   ; BugKiller:inst17|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; -4.138 ns ; k5   ; BugKiller:inst17|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; -4.140 ns ; k5   ; BugKiller:inst17|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; -4.141 ns ; k5   ; BugKiller:inst17|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; -4.160 ns ; k2   ; BugKiller:inst14|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; -4.162 ns ; k2   ; BugKiller:inst14|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; -4.163 ns ; k2   ; BugKiller:inst14|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; -4.163 ns ; k2   ; BugKiller:inst14|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; -4.174 ns ; k4   ; BugKiller:inst16|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; -4.178 ns ; k5   ; BugKiller:inst17|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; -4.179 ns ; k5   ; BugKiller:inst17|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; -4.180 ns ; k5   ; BugKiller:inst17|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; -4.181 ns ; k4   ; BugKiller:inst16|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; -4.182 ns ; k4   ; BugKiller:inst16|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; -4.183 ns ; k4   ; BugKiller:inst16|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; -4.183 ns ; k4   ; BugKiller:inst16|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; -4.185 ns ; k4   ; BugKiller:inst16|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; -4.186 ns ; k4   ; BugKiller:inst16|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; -4.195 ns ; k7   ; BugKiller:inst19|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; -4.196 ns ; k7   ; BugKiller:inst19|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; -4.197 ns ; k7   ; BugKiller:inst19|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; -4.198 ns ; k7   ; BugKiller:inst19|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; -4.198 ns ; k7   ; BugKiller:inst19|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; -4.203 ns ; lK   ; BugKiller:inst21|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; -4.203 ns ; lK   ; BugKiller:inst21|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; -4.205 ns ; lK   ; BugKiller:inst21|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; -4.205 ns ; lK   ; BugKiller:inst21|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; -4.206 ns ; lK   ; BugKiller:inst21|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; -4.206 ns ; lK   ; BugKiller:inst21|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; -4.207 ns ; lK   ; BugKiller:inst21|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; -4.212 ns ; k4   ; BugKiller:inst16|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; -4.216 ns ; k4   ; BugKiller:inst16|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; -4.216 ns ; k4   ; BugKiller:inst16|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; -4.217 ns ; k4   ; BugKiller:inst16|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; -4.217 ns ; k4   ; BugKiller:inst16|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; -4.218 ns ; k4   ; BugKiller:inst16|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; -4.255 ns ; lK   ; BugKiller:inst21|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; -4.256 ns ; lK   ; BugKiller:inst21|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; -4.256 ns ; lK   ; BugKiller:inst21|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; -4.257 ns ; lK   ; BugKiller:inst21|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; -4.258 ns ; lK   ; BugKiller:inst21|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; -4.259 ns ; lK   ; BugKiller:inst21|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; -4.270 ns ; k4   ; BugKiller:inst16|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; -4.314 ns ; k3   ; BugKiller:inst15|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; -4.315 ns ; k3   ; BugKiller:inst15|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; -4.316 ns ; k3   ; BugKiller:inst15|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; -4.317 ns ; k3   ; BugKiller:inst15|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; -4.317 ns ; k3   ; BugKiller:inst15|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; -4.318 ns ; k3   ; BugKiller:inst15|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; -4.322 ns ; k2   ; BugKiller:inst14|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; -4.329 ns ; k2   ; BugKiller:inst14|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; -4.385 ns ; k7   ; BugKiller:inst19|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; -4.389 ns ; k7   ; BugKiller:inst19|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; -4.391 ns ; k7   ; BugKiller:inst19|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; -4.392 ns ; k7   ; BugKiller:inst19|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; -4.405 ns ; k7   ; BugKiller:inst19|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; -4.411 ns ; k6   ; BugKiller:inst18|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; -4.413 ns ; k6   ; BugKiller:inst18|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; -4.421 ns ; k4   ; BugKiller:inst16|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; -4.424 ns ; k4   ; BugKiller:inst16|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; -4.426 ns ; k7   ; BugKiller:inst19|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; -4.433 ns ; k7   ; BugKiller:inst19|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; -4.435 ns ; k7   ; BugKiller:inst19|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; -4.440 ns ; k7   ; BugKiller:inst19|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; -4.442 ns ; k7   ; BugKiller:inst19|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; -4.443 ns ; k4   ; BugKiller:inst16|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; -4.443 ns ; k7   ; BugKiller:inst19|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; -4.445 ns ; k7   ; BugKiller:inst19|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; -4.445 ns ; k7   ; BugKiller:inst19|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; -4.446 ns ; k7   ; BugKiller:inst19|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; -4.447 ns ; k6   ; BugKiller:inst18|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; -4.466 ns ; lK   ; BugKiller:inst21|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; -4.484 ns ; k4   ; BugKiller:inst16|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; -4.519 ns ; k6   ; BugKiller:inst18|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; -4.520 ns ; k6   ; BugKiller:inst18|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; -4.521 ns ; k6   ; BugKiller:inst18|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; -4.545 ns ; k2   ; BugKiller:inst14|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; -4.549 ns ; hK   ; BugKiller:inst20|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; -4.551 ns ; k2   ; BugKiller:inst14|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; -4.551 ns ; k2   ; BugKiller:inst14|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; -4.551 ns ; k2   ; BugKiller:inst14|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; -4.552 ns ; k2   ; BugKiller:inst14|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; -4.553 ns ; k2   ; BugKiller:inst14|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; -4.553 ns ; k2   ; BugKiller:inst14|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; -4.554 ns ; hK   ; BugKiller:inst20|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; -4.567 ns ; k3   ; BugKiller:inst15|ti[17]  ; clk      ;
+; N/A                                     ; None                                                ; -4.570 ns ; k3   ; BugKiller:inst15|ti[14]  ; clk      ;
+; N/A                                     ; None                                                ; -4.570 ns ; k5   ; BugKiller:inst17|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; -4.571 ns ; k5   ; BugKiller:inst17|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; -4.576 ns ; k3   ; BugKiller:inst15|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; -4.578 ns ; k3   ; BugKiller:inst15|ti[18]  ; clk      ;
+; N/A                                     ; None                                                ; -4.580 ns ; k3   ; BugKiller:inst15|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; -4.582 ns ; k3   ; BugKiller:inst15|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; -4.583 ns ; k3   ; BugKiller:inst15|ti[16]  ; clk      ;
+; N/A                                     ; None                                                ; -4.583 ns ; k3   ; BugKiller:inst15|ti[19]  ; clk      ;
+; N/A                                     ; None                                                ; -4.590 ns ; lK   ; BugKiller:inst21|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; -4.603 ns ; k2   ; BugKiller:inst14|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; -4.605 ns ; k2   ; BugKiller:inst14|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; -4.605 ns ; k1   ; BugKiller:inst13|out     ; clk      ;
+; N/A                                     ; None                                                ; -4.610 ns ; k5   ; BugKiller:inst17|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; -4.621 ns ; k2   ; BugKiller:inst14|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; -4.623 ns ; k2   ; BugKiller:inst14|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; -4.625 ns ; k2   ; BugKiller:inst14|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; -4.626 ns ; k2   ; BugKiller:inst14|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; -4.626 ns ; k2   ; BugKiller:inst14|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; -4.649 ns ; k5   ; BugKiller:inst17|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; -4.651 ns ; k5   ; BugKiller:inst17|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; -4.659 ns ; k3   ; BugKiller:inst15|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; -4.660 ns ; k3   ; BugKiller:inst15|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; -4.772 ns ; hK   ; BugKiller:inst20|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; -4.773 ns ; hK   ; BugKiller:inst20|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; -4.773 ns ; hK   ; BugKiller:inst20|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; -4.774 ns ; hK   ; BugKiller:inst20|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; -4.775 ns ; hK   ; BugKiller:inst20|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; -4.775 ns ; hK   ; BugKiller:inst20|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; -4.781 ns ; k5   ; BugKiller:inst17|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; -4.782 ns ; k5   ; BugKiller:inst17|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; -4.786 ns ; k5   ; BugKiller:inst17|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; -4.789 ns ; k5   ; BugKiller:inst17|ti[8]   ; clk      ;
+; N/A                                     ; None                                                ; -4.791 ns ; k5   ; BugKiller:inst17|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; -4.824 ns ; k6   ; BugKiller:inst18|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; -4.877 ns ; k2   ; BugKiller:inst14|sta.011 ; clk      ;
+; N/A                                     ; None                                                ; -4.910 ns ; k6   ; BugKiller:inst18|ti[10]  ; clk      ;
+; N/A                                     ; None                                                ; -4.912 ns ; k6   ; BugKiller:inst18|sta.100 ; clk      ;
+; N/A                                     ; None                                                ; -4.912 ns ; k6   ; BugKiller:inst18|ti[11]  ; clk      ;
+; N/A                                     ; None                                                ; -4.914 ns ; k6   ; BugKiller:inst18|ti[15]  ; clk      ;
+; N/A                                     ; None                                                ; -4.918 ns ; k6   ; BugKiller:inst18|ti[13]  ; clk      ;
+; N/A                                     ; None                                                ; -4.920 ns ; k6   ; BugKiller:inst18|ti[12]  ; clk      ;
+; N/A                                     ; None                                                ; -4.922 ns ; k2   ; BugKiller:inst14|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; -4.927 ns ; k2   ; BugKiller:inst14|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; -4.935 ns ; k3   ; BugKiller:inst15|sta.001 ; clk      ;
+; N/A                                     ; None                                                ; -4.964 ns ; hK   ; BugKiller:inst20|ti[9]   ; clk      ;
+; N/A                                     ; None                                                ; -4.969 ns ; k3   ; BugKiller:inst15|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; -4.969 ns ; k3   ; BugKiller:inst15|ti[1]   ; clk      ;
+; N/A                                     ; None                                                ; -4.970 ns ; hK   ; BugKiller:inst20|ti[4]   ; clk      ;
+; N/A                                     ; None                                                ; -4.972 ns ; k3   ; BugKiller:inst15|ti[2]   ; clk      ;
+; N/A                                     ; None                                                ; -4.975 ns ; k3   ; BugKiller:inst15|ti[7]   ; clk      ;
+; N/A                                     ; None                                                ; -4.975 ns ; k3   ; BugKiller:inst15|ti[3]   ; clk      ;
+; N/A                                     ; None                                                ; -4.976 ns ; k3   ; BugKiller:inst15|ti[6]   ; clk      ;
+; N/A                                     ; None                                                ; -4.978 ns ; k3   ; BugKiller:inst15|ti[0]   ; clk      ;
+; N/A                                     ; None                                                ; -4.979 ns ; k2   ; BugKiller:inst14|sta.000 ; clk      ;
+; N/A                                     ; None                                                ; -4.992 ns ; hK   ; BugKiller:inst20|ti[5]   ; clk      ;
+; N/A                                     ; None                                                ; -4.994 ns ; hK   ; BugKiller:inst20|ti[3]   ; clk      ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;           ;      ;                          ;          ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+--------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 7.0 Build 33 02/05/2007 SJ Full Version
+    Info: Processing started: Wed Jul 03 14:11:10 2013
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off ChrisLinn -c ChrisLinn --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Info: Clock "clk" has Internal fmax of 63.38 MHz between source register "Gen:inst|ti[3]" and destination register "Gen:inst|ti[19]" (period= 15.777 ns)
+    Info: + Longest register to register delay is 15.513 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X48_Y19_N25; Fanout = 2; REG Node = 'Gen:inst|ti[3]'
+        Info: 2: + IC(1.142 ns) + CELL(0.596 ns) = 1.738 ns; Loc. = LCCOMB_X48_Y20_N18; Fanout = 2; COMB Node = 'Gen:inst|Add0~2928'
+        Info: 3: + IC(0.000 ns) + CELL(0.086 ns) = 1.824 ns; Loc. = LCCOMB_X48_Y20_N20; Fanout = 2; COMB Node = 'Gen:inst|Add0~2930'
+        Info: 4: + IC(0.000 ns) + CELL(0.086 ns) = 1.910 ns; Loc. = LCCOMB_X48_Y20_N22; Fanout = 2; COMB Node = 'Gen:inst|Add0~2932'
+        Info: 5: + IC(0.000 ns) + CELL(0.086 ns) = 1.996 ns; Loc. = LCCOMB_X48_Y20_N24; Fanout = 2; COMB Node = 'Gen:inst|Add0~2934'
+        Info: 6: + IC(0.000 ns) + CELL(0.086 ns) = 2.082 ns; Loc. = LCCOMB_X48_Y20_N26; Fanout = 2; COMB Node = 'Gen:inst|Add0~2936'
+        Info: 7: + IC(0.000 ns) + CELL(0.086 ns) = 2.168 ns; Loc. = LCCOMB_X48_Y20_N28; Fanout = 2; COMB Node = 'Gen:inst|Add0~2938'
+        Info: 8: + IC(0.000 ns) + CELL(0.175 ns) = 2.343 ns; Loc. = LCCOMB_X48_Y20_N30; Fanout = 2; COMB Node = 'Gen:inst|Add0~2940'
+        Info: 9: + IC(0.000 ns) + CELL(0.086 ns) = 2.429 ns; Loc. = LCCOMB_X48_Y19_N0; Fanout = 2; COMB Node = 'Gen:inst|Add0~2942'
+        Info: 10: + IC(0.000 ns) + CELL(0.086 ns) = 2.515 ns; Loc. = LCCOMB_X48_Y19_N2; Fanout = 2; COMB Node = 'Gen:inst|Add0~2944'
+        Info: 11: + IC(0.000 ns) + CELL(0.086 ns) = 2.601 ns; Loc. = LCCOMB_X48_Y19_N4; Fanout = 2; COMB Node = 'Gen:inst|Add0~2946'
+        Info: 12: + IC(0.000 ns) + CELL(0.086 ns) = 2.687 ns; Loc. = LCCOMB_X48_Y19_N6; Fanout = 2; COMB Node = 'Gen:inst|Add0~2948'
+        Info: 13: + IC(0.000 ns) + CELL(0.086 ns) = 2.773 ns; Loc. = LCCOMB_X48_Y19_N8; Fanout = 2; COMB Node = 'Gen:inst|Add0~2950'
+        Info: 14: + IC(0.000 ns) + CELL(0.086 ns) = 2.859 ns; Loc. = LCCOMB_X48_Y19_N10; Fanout = 2; COMB Node = 'Gen:inst|Add0~2952'
+        Info: 15: + IC(0.000 ns) + CELL(0.086 ns) = 2.945 ns; Loc. = LCCOMB_X48_Y19_N12; Fanout = 2; COMB Node = 'Gen:inst|Add0~2954'
+        Info: 16: + IC(0.000 ns) + CELL(0.190 ns) = 3.135 ns; Loc. = LCCOMB_X48_Y19_N14; Fanout = 2; COMB Node = 'Gen:inst|Add0~2956'
+        Info: 17: + IC(0.000 ns) + CELL(0.506 ns) = 3.641 ns; Loc. = LCCOMB_X48_Y19_N16; Fanout = 4; COMB Node = 'Gen:inst|Add0~2957'
+        Info: 18: + IC(0.384 ns) + CELL(0.370 ns) = 4.395 ns; Loc. = LCCOMB_X48_Y19_N30; Fanout = 4; COMB Node = 'Gen:inst|LessThan11~277'
+        Info: 19: + IC(1.088 ns) + CELL(0.370 ns) = 5.853 ns; Loc. = LCCOMB_X47_Y20_N24; Fanout = 13; COMB Node = 'Gen:inst|LessThan29~282'
+        Info: 20: + IC(1.859 ns) + CELL(0.206 ns) = 7.918 ns; Loc. = LCCOMB_X48_Y17_N14; Fanout = 1; COMB Node = 'Gen:inst|LessThan25~263'
+        Info: 21: + IC(1.415 ns) + CELL(0.370 ns) = 9.703 ns; Loc. = LCCOMB_X50_Y19_N24; Fanout = 1; COMB Node = 'Gen:inst|ti[9]~6858'
+        Info: 22: + IC(1.167 ns) + CELL(0.370 ns) = 11.240 ns; Loc. = LCCOMB_X49_Y17_N6; Fanout = 1; COMB Node = 'Gen:inst|ti[9]~6859'
+        Info: 23: + IC(1.106 ns) + CELL(0.206 ns) = 12.552 ns; Loc. = LCCOMB_X48_Y20_N8; Fanout = 1; COMB Node = 'Gen:inst|ti[9]~6863'
+        Info: 24: + IC(0.375 ns) + CELL(0.319 ns) = 13.246 ns; Loc. = LCCOMB_X48_Y20_N2; Fanout = 21; COMB Node = 'Gen:inst|ti[9]~6903'
+        Info: 25: + IC(1.953 ns) + CELL(0.206 ns) = 15.405 ns; Loc. = LCCOMB_X49_Y19_N24; Fanout = 1; COMB Node = 'Gen:inst|Mux2~43'
+        Info: 26: + IC(0.000 ns) + CELL(0.108 ns) = 15.513 ns; Loc. = LCFF_X49_Y19_N25; Fanout = 2; REG Node = 'Gen:inst|ti[19]'
+        Info: Total cell delay = 5.024 ns ( 32.39 % )
+        Info: Total interconnect delay = 10.489 ns ( 67.61 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 3.194 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.090 ns) = 1.090 ns; Loc. = PIN_M1; Fanout = 1; CLK Node = 'clk'
+            Info: 2: + IC(0.239 ns) + CELL(0.000 ns) = 1.329 ns; Loc. = CLKCTRL_G3; Fanout = 247; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(1.199 ns) + CELL(0.666 ns) = 3.194 ns; Loc. = LCFF_X49_Y19_N25; Fanout = 2; REG Node = 'Gen:inst|ti[19]'
+            Info: Total cell delay = 1.756 ns ( 54.98 % )
+            Info: Total interconnect delay = 1.438 ns ( 45.02 % )
+        Info: - Longest clock path from clock "clk" to source register is 3.194 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.090 ns) = 1.090 ns; Loc. = PIN_M1; Fanout = 1; CLK Node = 'clk'
+            Info: 2: + IC(0.239 ns) + CELL(0.000 ns) = 1.329 ns; Loc. = CLKCTRL_G3; Fanout = 247; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(1.199 ns) + CELL(0.666 ns) = 3.194 ns; Loc. = LCFF_X48_Y19_N25; Fanout = 2; REG Node = 'Gen:inst|ti[3]'
+            Info: Total cell delay = 1.756 ns ( 54.98 % )
+            Info: Total interconnect delay = 1.438 ns ( 45.02 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Micro setup delay of destination is -0.040 ns
+Info: tsu for register "BugKiller:inst17|out" (data pin = "k5", clock pin = "clk") is 9.439 ns
+    Info: + Longest pin to register delay is 12.658 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.914 ns) = 0.914 ns; Loc. = PIN_C10; Fanout = 24; PIN Node = 'k5'
+        Info: 2: + IC(6.402 ns) + CELL(0.206 ns) = 7.522 ns; Loc. = LCCOMB_X22_Y24_N28; Fanout = 2; COMB Node = 'BugKiller:inst17|Selector3~23'
+        Info: 3: + IC(4.378 ns) + CELL(0.650 ns) = 12.550 ns; Loc. = LCCOMB_X50_Y21_N26; Fanout = 1; COMB Node = 'BugKiller:inst17|WideOr5'
+        Info: 4: + IC(0.000 ns) + CELL(0.108 ns) = 12.658 ns; Loc. = LCFF_X50_Y21_N27; Fanout = 4; REG Node = 'BugKiller:inst17|out'
+        Info: Total cell delay = 1.878 ns ( 14.84 % )
+        Info: Total interconnect delay = 10.780 ns ( 85.16 % )
+    Info: + Micro setup delay of destination is -0.040 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 3.179 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.090 ns) = 1.090 ns; Loc. = PIN_M1; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.239 ns) + CELL(0.000 ns) = 1.329 ns; Loc. = CLKCTRL_G3; Fanout = 247; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.184 ns) + CELL(0.666 ns) = 3.179 ns; Loc. = LCFF_X50_Y21_N27; Fanout = 4; REG Node = 'BugKiller:inst17|out'
+        Info: Total cell delay = 1.756 ns ( 55.24 % )
+        Info: Total interconnect delay = 1.423 ns ( 44.76 % )
+Info: tco from clock "clk" to destination pin "yimashuchu[3]" through register "BugKiller:inst13|out" is 13.691 ns
+    Info: + Longest clock path from clock "clk" to source register is 3.215 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.090 ns) = 1.090 ns; Loc. = PIN_M1; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.239 ns) + CELL(0.000 ns) = 1.329 ns; Loc. = CLKCTRL_G3; Fanout = 247; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.220 ns) + CELL(0.666 ns) = 3.215 ns; Loc. = LCFF_X30_Y3_N9; Fanout = 5; REG Node = 'BugKiller:inst13|out'
+        Info: Total cell delay = 1.756 ns ( 54.62 % )
+        Info: Total interconnect delay = 1.459 ns ( 45.38 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Longest register to pin delay is 10.172 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X30_Y3_N9; Fanout = 5; REG Node = 'BugKiller:inst13|out'
+        Info: 2: + IC(2.963 ns) + CELL(0.370 ns) = 3.333 ns; Loc. = LCCOMB_X50_Y21_N14; Fanout = 28; COMB Node = 'AngryPuppy:inst2|signal[2]~304'
+        Info: 3: + IC(1.144 ns) + CELL(0.206 ns) = 4.683 ns; Loc. = LCCOMB_X49_Y21_N8; Fanout = 23; COMB Node = 'AngryPuppy:inst2|signal[3]~308'
+        Info: 4: + IC(2.443 ns) + CELL(3.046 ns) = 10.172 ns; Loc. = PIN_K22; Fanout = 0; PIN Node = 'yimashuchu[3]'
+        Info: Total cell delay = 3.622 ns ( 35.61 % )
+        Info: Total interconnect delay = 6.550 ns ( 64.39 % )
+Info: th for register "BugKiller:inst13|ti[9]" (data pin = "k1", clock pin = "clk") is -3.463 ns
+    Info: + Longest clock path from clock "clk" to destination register is 3.212 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.090 ns) = 1.090 ns; Loc. = PIN_M1; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.239 ns) + CELL(0.000 ns) = 1.329 ns; Loc. = CLKCTRL_G3; Fanout = 247; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.217 ns) + CELL(0.666 ns) = 3.212 ns; Loc. = LCFF_X29_Y4_N3; Fanout = 2; REG Node = 'BugKiller:inst13|ti[9]'
+        Info: Total cell delay = 1.756 ns ( 54.67 % )
+        Info: Total interconnect delay = 1.456 ns ( 45.33 % )
+    Info: + Micro hold delay of destination is 0.306 ns
+    Info: - Shortest pin to register delay is 6.981 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.904 ns) = 0.904 ns; Loc. = PIN_V11; Fanout = 24; PIN Node = 'k1'
+        Info: 2: + IC(5.763 ns) + CELL(0.206 ns) = 6.873 ns; Loc. = LCCOMB_X29_Y4_N2; Fanout = 1; COMB Node = 'BugKiller:inst13|Selector14~27'
+        Info: 3: + IC(0.000 ns) + CELL(0.108 ns) = 6.981 ns; Loc. = LCFF_X29_Y4_N3; Fanout = 2; REG Node = 'BugKiller:inst13|ti[9]'
+        Info: Total cell delay = 1.218 ns ( 17.45 % )
+        Info: Total interconnect delay = 5.763 ns ( 82.55 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Allocated 107 megabytes of memory during processing
+    Info: Processing ended: Wed Jul 03 14:11:32 2013
+    Info: Elapsed time: 00:00:22
+
+

@@ -1,0 +1,8 @@
+syms R1 jwL1 jwM jwL2 jwC uR5 R5;
+Z=[R1+jwL1,jwM,0,uR5;jwM,jwL2,0,0;0,0,1/jwC,0;0,0,0,R5];
+B=[1,0,0,0;0,1,1,0;0,0,1,1];
+B*Z*B'
+
+Us=[0;0;0;1];
+Is=[0;0;0;0];
+B*Us-B*Z*Is
