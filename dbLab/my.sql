@@ -127,4 +127,4 @@ WHERE ItemType = 'E'
 AND DepartmentFloor = 2; 
 
 #21
-test ssh push pushsa 
+test succeed
