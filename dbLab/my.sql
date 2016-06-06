@@ -101,3 +101,29 @@ OR ItemID IN
 WHERE DepartmentName = 'Navigation'); 
 
 #17
+SELECT FORMAT(AVG(EmployeeSalary),2) AS AverageSalary 
+FROM Employee INNER JOIN Department 
+ON Department.DepartmentID = Employee.DepartmentID 
+WHERE DepartmentName = 'Clothes'; 
+
+#18
+SELECT DepartmentName, FORMAT(AVG(EmployeeSalary),2) AS AverageSalary 
+FROM Employee INNER JOIN Department 
+ON Department.DepartmentID = Employee.DepartmentID 
+GROUP BY DepartmentName; 
+
+#19
+SELECT Department.DepartmentName,  
+FORMAT(AVG(EmployeeSalary),2) AS AverageSalary 
+FROM Employee NATURAL JOIN Department 
+WHERE DepartmentFloor = 2 
+GROUP BY Department.DepartmentName; 
+
+#20
+SELECT SUM(SaleQTY) FROM Item INNER JOIN Sale INNER JOIN Department 
+ON Item.ItemID = Sale.ItemID 
+AND Department.DepartmentID = Sale.DepartmentID 
+WHERE ItemType = 'E' 
+AND DepartmentFloor = 2; 
+
+#21
