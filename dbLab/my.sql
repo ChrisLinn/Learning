@@ -120,11 +120,31 @@ WHERE DepartmentFloor = 2
 GROUP BY Department.DepartmentName; 
 
 #20
+SELECT Department.DepartmentName,  
+FORMAT(AVG(EmployeeSalary),2) AS AverageSalary 
+FROM Employee INNER JOIN Department INNER JOIN Sale INNER JOIN Item 
+ON Employee.DepartmentID = Department.DepartmentID 
+AND Department.DepartmentID = Sale.DepartmentID 
+AND Sale.ItemID = Item.ItemID 
+WHERE ItemType = 'E' 
+GROUP BY Department.DepartmentName; 
+
+
+#21 no
+
+#22
 SELECT SUM(SaleQTY) FROM Item INNER JOIN Sale INNER JOIN Department 
 ON Item.ItemID = Sale.ItemID 
 AND Department.DepartmentID = Sale.DepartmentID 
 WHERE ItemType = 'E' 
 AND DepartmentFloor = 2; 
 
-#21
-test succeed
+#23
+SELECT Item.ItemName, SUM(SaleQTY) FROM Item  
+INNER JOIN Sale INNER JOIN Department 
+ON Item.ItemID = Sale.ItemID 
+AND Department.DepartmentID = Sale.DepartmentID 
+WHERE DepartmentFloor = 2 
+GROUP BY Item.ItemName; 
+
+#23
