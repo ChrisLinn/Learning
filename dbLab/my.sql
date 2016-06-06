@@ -82,7 +82,7 @@ FROM Delivery NATURAL JOIN Supplier
 GROUP BY Supplier.SupplierID, SupplierName 
 HAVING COUNT(DISTINCT Delivery.ItemID) >= 10; 
 
-#15  ======================================
+#15
 SELECT DISTINCT ItemName FROM Item 
 WHERE ItemID IN 
 (SELECT ItemID FROM Delivery NATURAL JOIN Supplier 
@@ -91,7 +91,7 @@ AND ItemID IN
 (SELECT ItemID FROM Sale NATURAL JOIN Department 
 WHERE DepartmentName = 'Navigation'); 
 
-#16  ======================================
+#16
 SELECT DISTINCT ItemName FROM Item 
 WHERE ItemID IN 
 (SELECT ItemID FROM Delivery NATURAL JOIN Supplier 
@@ -99,3 +99,5 @@ WHERE SupplierName = 'Nepalese corp.')
 OR ItemID IN 
 (SELECT ItemID FROM Sale NATURAL JOIN Department 
 WHERE DepartmentName = 'Navigation'); 
+
+#17
