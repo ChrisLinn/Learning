@@ -90,3 +90,12 @@ WHERE SupplierName = 'Nepalese corp.')
 AND ItemID IN 
 (SELECT ItemID FROM Sale NATURAL JOIN Department 
 WHERE DepartmentName = 'Navigation'); 
+
+#16  ======================================
+SELECT DISTINCT ItemName FROM Item 
+WHERE ItemID IN 
+(SELECT ItemID FROM Delivery NATURAL JOIN Supplier 
+WHERE SupplierName = 'Nepalese corp.') 
+OR ItemID IN 
+(SELECT ItemID FROM Sale NATURAL JOIN Department 
+WHERE DepartmentName = 'Navigation'); 
