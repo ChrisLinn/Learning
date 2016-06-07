@@ -412,7 +412,7 @@ WHERE ItemName = "Geo Positioning System");
 -- GROUP BY ItemName 
 -- HAVING COUNT(DepartmentID) >= 2; 
 
-#9
+#9 we can have a rest
 
 #10
 
