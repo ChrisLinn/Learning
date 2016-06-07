@@ -365,7 +365,7 @@ SELECT ItemName FROM Item
 WHERE ItemType = "C" 
 AND ItemColour = "Green"; 
 
-#2
+#2 but ...lab's solu1 and solu1 don't match with each other?!
 SELECT DepartmentName FROM Department 
 WHERE DepartmentID IN 
 (SELECT DepartmentID FROM Sale  
@@ -443,23 +443,79 @@ ON Supplier.SupplierID = Delivery.SupplierID
 GROUP BY SupplierName 
 HAVING COUNT(Delivery.DeliveryID) <= 2; 
 
-#14
+#14 why error? could I use count??????
+-- WHERE Delivery.SupplierID NOT IN 
+-- (SELECT SupplierID FROM Delivery NATURAL JOIN Item 
+-- WHERE Itemname = 'Compass'); 
 
 #15
+#dont need join?
+SELECT Department.DepartmentName, Department.DepartmentFloor, AVG(EmployeeSalary) 
+FROM Employee, Department 
+WHERE Department.DepartmentID = Employee.DepartmentID 
+GROUP BY Department.DepartmentName, Department.DepartmentFloor; 
+
+SELECT Department.DepartmentName, Department.DepartmentFloor, AVG(EmployeeSalary) 
+FROM Employee inner join Department 
+WHERE Department.DepartmentID = Employee.DepartmentID 
+GROUP BY Department.DepartmentName, Department.DepartmentFloor; 
 
 #16
+SELECT DepartmentName FROM Department 
+WHERE DepartmentFloor = 2; 
 
 #17
+SELECT DISTINCT SupplierName, ItemName FROM Supplier INNER JOIN Delivery INNER JOIN Item 
+ON Delivery.SupplierID = Supplier.SupplierID 
+AND Item.ItemID = Delivery.ItemID  
+ORDER BY SupplierName, ItemName; 
+#test ascend?
+SELECT DISTINCT SupplierName, ItemName FROM Supplier INNER JOIN Delivery INNER JOIN Item 
+ON Delivery.SupplierID = Supplier.SupplierID 
+AND Item.ItemID = Delivery.ItemID  
+ORDER BY SupplierName desc, ItemName asc; 
 
 #18
+# still weird, but also make sense?
+SELECT DepartmentName, COUNT(DepartmentName)  
+FROM Employee NATURAL JOIN Department 
+GROUP BY DepartmentName;
+#mine
+SELECT DepartmentName, COUNT(EmployeeID)  
+FROM Employee NATURAL JOIN Department 
+GROUP BY DepartmentName;
 
 #19
+SELECT EmployeeName FROM Employee 
+WHERE BossID IN  
+(SELECT EmployeeID FROM Employee 
+WHERE EmployeeName = "Todd"); 
+
+#ok let me use a self join. wth, I tried several times
+SELECT emp.EmployeeName FROM Employee as emp inner join Employee as boss
+on boss.EmployeeID = emp.BossID
+WHERE boss.EmployeeName = "Todd"; 
 
 #20
+SELECT EmployeeName FROM Employee 
+WHERE EmployeeID IN  
+(SELECT BossID FROM Employee  
+WHERE EmployeeName = 'Sophie'); 
+
+#ok let me use a self join. wth, I tried several times
+SELECT boss.EmployeeName FROM Employee as emp inner join Employee as boss
+on boss.EmployeeID = emp.BossID
+WHERE emp.EmployeeName = "Sophie"; 
 
 #21
+SELECT boss.EmployeeName AS Manager, emp.EmployeeName AS Employee 
+FROM Employee AS emp, Employee AS boss 
+WHERE emp.BossID = boss.EmployeeID 
+ORDER BY boss.EmployeeName, emp.EmployeeName; 
 
 #22
+SELECT EmployeeName FROM Employee 
+WHERE EmployeeSalary = (SELECT MIN(EmployeeSalary) FROM Employee); 
 
 #23
 
