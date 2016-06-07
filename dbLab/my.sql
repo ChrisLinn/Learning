@@ -147,4 +147,30 @@ AND Department.DepartmentID = Sale.DepartmentID
 WHERE DepartmentFloor = 2 
 GROUP BY Item.ItemName; 
 
-#23
+#24
+SELECT DepartmentID,  
+FORMAT(lower(EmployeeSalary),2) AS AverageSalary  
+FROM Employee 
+GROUP BY DepartmentID 
+HAVING AVG(EmployeeSalary) > 25000; 
+
+#25??????????????????????????????
+CREATE VIEW vAvgSalaryDept (DepartmentID, dpavgsal) AS 
+SELECT DepartmentID, AVG(EmployeeSalary) FROM Employee 
+GROUP BY DepartmentID; 
+SELECT dpavgsal from vAvgSalaryDept;
+SELECT EmployeeName,FORMAT((EmployeeSalary-dpavgsal),2) as 
+Salary_DeptAvgSalary
+from vAvgSalaryDept natural JOIN Employee NATURAL JOIN Department
+WHERE Department.DepartmentName = 'Accounting';
+#SELECT EmployeeName, FORMAT((EmployeeSalary ‐ dpavgsal),2) AS Salary_DeptAvgSalary
+#FROM vAvgSalaryDept NATURAL JOIN Employee NATURAL JOIN Department 
+#WHERE Department.DepartmentName = 'Accounting'; 
+
+#26
+SELECT EmployeeName, EmployeeSalary, FORMAT(dpavgsal,2) AS DeptAvSal,
+FORMAT(EmployeeSalary - dpavgsal,2) AS DiffEAvgDSal 
+FROM vAvgSalaryDept NATURAL JOIN Employee 
+WHERE vAvgSalaryDept.DepartmentID =  Employee.DepartmentID; 
+
+#27
