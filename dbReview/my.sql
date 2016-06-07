@@ -371,17 +371,16 @@ WHERE DepartmentID IN
 (SELECT DepartmentID FROM Sale  
 GROUP BY DepartmentID  
 HAVING COUNT(DISTINCT ItemID) > 3); 
-
 #I believe the answer is wrong and I've corrected it
 #merely says 4 items, didnt say 4 kinds of items as below
 SELECT DepartmentName FROM Department NATURAL JOIN Sale 
 GROUP BY DepartmentID
-HAVING COUNT(ItemID) > 3; 
+HAVING COUNT(SaleID) > 3;# for 4 kinds of items we will do: HAVING COUNT(ItemID) > 3 
 
 #3 I believe the answer is wrong again
-SELECT DepartmentName, COUNT(ItemID) FROM Department NATURAL JOIN Sale 
+SELECT DepartmentName, COUNT(SaleID) FROM Department NATURAL JOIN Sale #for 4 kinds of items we will do: COUNT(ItemID) 
 GROUP BY DepartmentID
-HAVING COUNT(ItemID) > 3; 
+HAVING COUNT(SaleID) > 3; # for 4 kinds of items we will do: HAVING COUNT(ItemID) > 3 
 
 #4
 SELECT Emp.EmployeeName FROM Employee AS Emp INNER JOIN Employee AS Boss 
@@ -439,11 +438,10 @@ ON Supplier.SupplierID = Delivery.SupplierID
 GROUP BY SupplierName 
 HAVING COUNT(Supplier.SupplierID) <= 2; 
 #mine
-SELECT SupplierName, COUNT(Delivery.DeliveryID FROM Delivery INNER JOIN Supplier 
+SELECT SupplierName, COUNT(Delivery.DeliveryID) FROM Delivery INNER JOIN Supplier 
 ON Supplier.SupplierID = Delivery.SupplierID 
 GROUP BY SupplierName 
 HAVING COUNT(Delivery.DeliveryID) <= 2; 
-
 
 #14
 
