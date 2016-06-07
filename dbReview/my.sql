@@ -202,3 +202,29 @@ WHERE DepartmentName = 'Accounting');
 
 select EmployeeName,(EmployeeSalary - allavgsal) from vAvgSalary natural JOIN Employee natural JOIN Department
 WHERE DepartmentName = 'Accounting';
+
+#30
+SELECT count(*) FROM 
+(SELECT DISTINCT SupplierID, DepartmentID FROM Delivery NATURAL JOIN Item 
+WHERE ItemType = 'E' ) AS tempname; 
+
+SELECT count( DISTINCT SupplierName, DepartmentName )
+FROM Delivery NATURAL JOIN Item NATURAL JOIN Department NATURAL JOIN Supplier 
+WHERE ItemType = 'E'; 
+
+SELECT count(*) FROM 
+(SELECT DISTINCT SupplierName, DepartmentName FROM Delivery NATURAL JOIN Item NATURAL JOIN Department NATURAL JOIN Supplier
+WHERE ItemType = 'E' ) AS tempname; 
+
+##seems unsafe distinct
+SELECT count( DISTINCT SupplierName, DepartmentName) FROM Delivery NATURAL JOIN Item NATURAL JOIN Department NATURAL JOIN Supplier
+WHERE ItemType = 'E'; 
+
+#31
+SELECT AVG(EmployeeSalary) FROM Employee; 
+#why the pdf talk about the rounding, I believe it's because of weight
+select * from vAvgSalaryDept;
+select dpavgsal from vAvgSalaryDept;
+SELECT AVG(dpavgsal) FROM vAvgSalaryDept;
+
+#32

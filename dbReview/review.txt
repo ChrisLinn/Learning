@@ -1,4 +1,4 @@
-8
+12
 	who are leading 
 		commercial
 			orabcle
@@ -15,4 +15,13 @@
 			data security
 			legal frameworks
 			large movements of data from your site to cloud
-			
+	oodbms not succeed
+		often tied to particular oo programming lang
+		lack of compatibility between different oodbms
+		lack of standard ad hoc query language
+		rdbms are used to integrate app
+		(but re-emerge in the form of NoSQL 'document databases' 
+	what driving the need to deal with big data
+	two primary problems that NoSQL databases attempt to solve
+		programmer productivity (OR mismatch)
+		big data (larger data volumes and throughput)
