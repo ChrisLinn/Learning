@@ -276,9 +276,13 @@ HAVING SUM(EmployeeSalary) > 25000)
 -- WHERE EmployeeID IN 
 -- (SELECT BossID FROM Employee  
 -- WHERE EmployeeName = 'Clare'); 
-select EmployeeName,EmployeeSalary from Employee where EmployeeID IN (select BossID from Employee where EmployeeName = 'Clare');
+-- select EmployeeName,EmployeeSalary from Employee where EmployeeID IN (select BossID from Employee where EmployeeName = 'Clare');
 
-SELECT BossID FROM Employee  
-WHERE EmployeeName = 'Clare'; 
+-- SELECT BossID FROM Employee  
+-- WHERE EmployeeName = 'Clare'; 
 
 #39
+SELECT boss.EmployeeID, boss.EmployeeName, COUNT(*) 
+FROM Employee wrk INNER JOIN Employee boss 
+ON wrk.BossID = boss.EmployeeID 
+GROUP BY boss.EmployeeID, boss.EmployeeName; 
