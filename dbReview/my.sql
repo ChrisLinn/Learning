@@ -163,9 +163,6 @@ SELECT EmployeeName,FORMAT((EmployeeSalary-dpavgsal),2) as
 Salary_DeptAvgSalary
 from vAvgSalaryDept natural JOIN Employee NATURAL JOIN Department
 WHERE Department.DepartmentName = 'Accounting';
-#SELECT EmployeeName, FORMAT((EmployeeSalary ‐ dpavgsal),2) AS Salary_DeptAvgSalary
-#FROM vAvgSalaryDept NATURAL JOIN Employee NATURAL JOIN Department 
-#WHERE Department.DepartmentName = 'Accounting'; 
 
 #26
 SELECT EmployeeName, EmployeeSalary, FORMAT(dpavgsal,2) AS DeptAvSal,
@@ -269,20 +266,180 @@ WHERE ItemID = 17
 AND D.DepartmentID IN  
 (SELECT DepartmentID FROM Employee 
 GROUP BY DepartmentID  
-HAVING SUM(EmployeeSalary) > 25000) 
+HAVING SUM(EmployeeSalary) > 25000) ;
 
-#38?????
--- SELECT EmployeeID,EmployeeName, EmployeeSalary FROM Employee 
--- WHERE EmployeeID IN 
--- (SELECT BossID FROM Employee  
--- WHERE EmployeeName = 'Clare'); 
--- select EmployeeName,EmployeeSalary from Employee where EmployeeID IN (select BossID from Employee where EmployeeName = 'Clare');
+#38
+SELECT EmployeeID,EmployeeName, EmployeeSalary FROM Employee 
+WHERE EmployeeID IN 
+(SELECT BossID FROM Employee  
+WHERE EmployeeName = 'Clare'); 
 
--- SELECT BossID FROM Employee  
--- WHERE EmployeeName = 'Clare'; 
+SELECT BossID FROM Employee  
+where EmployeeName = 'Clare'; 
 
-#39
+#39!!!!
 SELECT boss.EmployeeID, boss.EmployeeName, COUNT(*) 
 FROM Employee wrk INNER JOIN Employee boss 
 ON wrk.BossID = boss.EmployeeID 
 GROUP BY boss.EmployeeID, boss.EmployeeName; 
+
+#40???????????
+-- SELECT DISTINCT DepartmentID FROM Employee 
+-- WHERE DepartmentID <> 1 
+-- AND DepartmentID NOT IN 
+-- (SELECT wrk.DepartmentID FROM Employee wrk INNER JOIN Employee boss 
+-- ON wrk.BossID = boss.EmployeeID 
+-- WHERE wrk.EmployeeSalary >= boss.EmployeeSalary); 
+
+#41???????????
+-- SELECT DISTINCT DepartmentName FROM Sale NATURAL JOIN Department 
+-- WHERE ItemID IN 
+-- (SELECT Item.ItemID FROM Item INNER JOIN Delivery  
+-- INNER JOIN Supplier 
+-- ON Item.ItemID = Delivery.ItemID  
+-- AND Delivery.SupplierID = Supplier.SupplierID 
+-- WHERE SupplierName = 'Nepalese Corp.' 
+-- AND ItemType = 'E') 
+-- OR ItemID IN 
+-- (SELECT ItemID FROM Sale NATURAL JOIN Department 
+-- WHERE DepartmentName = 'Navigation'); 
+
+#42??????
+-- SELECT COUNT(*) > 0 FROM Department 
+-- WHERE DepartmentFloor <> 3 
+-- AND EXISTS 
+-- (SELECT * FROM Sale NATURAL JOIN Item 
+-- WHERE Sale.DepartmentID = Department.DepartmentID 
+-- AND ItemType = 'C'); 
+
+#43 amazing
+SELECT DISTINCT Supplier.SupplierID, SupplierName, ItemID 
+FROM Supplier NATURAL JOIN Delivery del1 
+WHERE ItemID NOT IN 
+(SELECT ItemID FROM Delivery 
+WHERE Delivery.SupplierID <> del1.SupplierID); 
+#how about this 
+SELECT DISTINCT Supplier.SupplierID, SupplierName, ItemID 
+FROM Supplier NATURAL JOIN Delivery del1 ;
+Group  by ItemID
+HAVING count(distinct SupplierID)=1;#distinct is neccessary
+
+#44???
+
+#45
+
+#46
+
+#47
+
+#48
+
+#49
+
+#50
+
+#51
+
+#52
+
+#54
+
+#55
+
+#56
+
+#57
+
+#58
+
+#59
+
+#60
+
+##################################################################
+#part 4
+#1
+
+#2
+
+#3
+
+#4
+
+#5
+
+#6
+
+#7
+
+#8
+
+#9
+
+#10
+
+#11
+
+#12
+
+#13
+
+#14
+
+#15
+
+#16
+
+#17
+
+#18
+
+#19
+
+#20
+
+#21
+
+#22
+
+#23
+
+#24
+
+#25
+
+#26
+
+#27
+
+#28
+
+#29
+
+#30
+
+#31
+
+#32
+
+#33
+
+#34
+
+#35
+
+#36
+
+#37
+
+#38
+
+#39
+
+#40
+
+#41
+
+#42
+
+
