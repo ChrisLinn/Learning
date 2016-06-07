@@ -191,4 +191,14 @@ AND DepartmentID IN
 (SELECT DepartmentID FROM vDeptFloor2ItemB))); 
 #don't use  a  view
 
-#28
+#28!!!!!!!!!!!!!!!!!!!!
+#29
+CREATE VIEW vAvgSalary(allavgsal) AS 
+SELECT AVG(EmployeeSalary) FROM Employee;  
+select EmployeeName,(EmployeeSalary - allavgsal) from vAvgSalary natural JOIN Employee
+WHERE DepartmentID IN
+(select DepartmentID from Department
+WHERE DepartmentName = 'Accounting'); 
+
+select EmployeeName,(EmployeeSalary - allavgsal) from vAvgSalary natural JOIN Employee natural JOIN Department
+WHERE DepartmentName = 'Accounting';

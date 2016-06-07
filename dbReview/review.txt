@@ -6,6 +6,13 @@
 			ms sql server
 		open
 			mysql
-
 	store data in the cloud 
-		
+		prons
+			simplifies
+				setting up
+				especially scaling up
+		cons
+			data security
+			legal frameworks
+			large movements of data from your site to cloud
+			
