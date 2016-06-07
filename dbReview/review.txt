@@ -1,0 +1,11 @@
+8
+	who are leading 
+		commercial
+			orabcle
+			ibm db2
+			ms sql server
+		open
+			mysql
+
+	store data in the cloud 
+		

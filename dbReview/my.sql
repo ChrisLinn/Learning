@@ -173,4 +173,22 @@ FORMAT(EmployeeSalary - dpavgsal,2) AS DiffEAvgDSal
 FROM vAvgSalaryDept NATURAL JOIN Employee 
 WHERE vAvgSalaryDept.DepartmentID =  Employee.DepartmentID; 
 
-#27
+#27~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#use view
+##create a view
+CREATE VIEW vDeptFloor2ItemB AS 
+(SELECT DepartmentID FROM Department 
+WHERE DepartmentFloor = 2 AND NOT EXISTS  
+(SELECT * FROM Item WHERE ItemType = 'R' AND NOT EXISTS  
+(SELECT * FROM Sale WHERE Sale.ItemID = Item.ItemID 
+AND Sale.DepartmentID = Department.DepartmentID))); 
+##take advantage of the view
+SELECT SupplierName FROM Supplier WHERE NOT EXISTS  
+(SELECT * FROM Item WHERE ItemType = 'B' AND NOT EXISTS  
+(SELECT * FROM Delivery WHERE Delivery.ItemID = Item.ItemID 
+AND Delivery.SupplierID = Supplier.SupplierID 
+AND DepartmentID IN  
+(SELECT DepartmentID FROM vDeptFloor2ItemB))); 
+#don't use  a  view
+
+#28
