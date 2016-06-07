@@ -397,10 +397,20 @@ SELECT ItemName FROM Item NATURAL JOIN Sale NATURAL JOIN Department
 WHERE DepartmentName = "Recreation" AND ItemColour = "Brown";  
 
 #6
+SELECT Emp.EmployeeName FROM Employee AS Emp INNER JOIN Employee AS Boss  
+ON Boss.EmployeeID = Emp.BossID 
+WHERE Emp.EmployeeSalary <= (Boss.EmployeeSalary /2); 
 
-#7
+#7 could I use count??????????????????????
+SELECT DepartmentName FROM Department
+WHERE DepartmentID NOT IN 
+(SELECT DepartmentID FROM Sale NATURAL JOIN Item 
+WHERE ItemName = "Geo Positioning System"); 
 
-#8
+#8?????I cant focus
+-- SELECT ItemName FROM SALE NATURAL JOIN Item 
+-- GROUP BY ItemName 
+-- HAVING COUNT(DepartmentID) >= 2; 
 
 #9
 
