@@ -412,9 +412,16 @@ WHERE ItemName = "Geo Positioning System");
 -- GROUP BY ItemName 
 -- HAVING COUNT(DepartmentID) >= 2; 
 
-#9 we can have a rest
+#9
+SELECT EmployeeName FROM Employee 
+WHERE EmployeeSalary =  
+(SELECT MAX(EmployeeSalary) FROM Employee NATURAL JOIN Department 
+WHERE DepartmentName = "Marketing"); 
 
 #10
+SELECT EmployeeName, EmployeeSalary FROM Employee 
+WHERE EmployeeSalary < 
+(SELECT AVG(EmployeeSalary)*0.60 FROM Employee); 
 
 #11
 
