@@ -318,11 +318,13 @@ FROM Supplier NATURAL JOIN Delivery del1
 WHERE ItemID NOT IN 
 (SELECT ItemID FROM Delivery 
 WHERE Delivery.SupplierID <> del1.SupplierID); 
-#how about this 
-SELECT DISTINCT Supplier.SupplierID, SupplierName, ItemID 
-FROM Supplier NATURAL JOIN Delivery del1 ;
-Group  by ItemID
-HAVING count(distinct SupplierID)=1;#distinct is neccessary
+##?????????????????????????????????????????????????
+#how about this #distinct is neccessary. wierd, why I cannot put group by beforeward? may not be good.
+-- SELECT DISTINCT Supplier.SupplierID, SupplierName, ItemID 
+-- FROM Supplier NATURAL JOIN Delivery del1
+-- HAVING count(distinct SupplierID)=1 #is distinct that important?
+-- Group  by ItemID
+-- ;
 
 #44???
 
@@ -359,14 +361,40 @@ HAVING count(distinct SupplierID)=1;#distinct is neccessary
 ##################################################################
 #part 4
 #1
+SELECT ItemName FROM Item  
+WHERE ItemType = "C" 
+AND ItemColour = "Green"; 
 
 #2
+SELECT DepartmentName FROM Department 
+WHERE DepartmentID IN 
+(SELECT DepartmentID FROM Sale  
+GROUP BY DepartmentID  
+HAVING COUNT(DISTINCT ItemID) > 3); 
 
-#3
+#I believe the answer is wrong and I've corrected it
+#merely says 4 items, didnt say 4 kinds of items as below
+SELECT DepartmentName FROM Department NATURAL JOIN Sale 
+GROUP BY DepartmentID
+HAVING COUNT(ItemID) > 3; 
+
+#3 I believe the answer is wrong again
+SELECT DepartmentName, COUNT(ItemID) FROM Department NATURAL JOIN Sale 
+GROUP BY DepartmentID
+HAVING COUNT(ItemID) > 3; 
 
 #4
+SELECT Emp.EmployeeName FROM Employee AS Emp INNER JOIN Employee AS Boss 
+ON Emp.BossID = Boss.EmployeeID 
+WHERE Emp.DepartmentID = Boss.DepartmentID; 
+#so da si nie, we can use without alias
+SELECT Emp.EmployeeName FROM Employee Emp INNER JOIN Employee Boss 
+ON Emp.BossID = Boss.EmployeeID 
+WHERE Emp.DepartmentID = Boss.DepartmentID; 
 
 #5
+SELECT ItemName FROM Item NATURAL JOIN Sale NATURAL JOIN Department  
+WHERE DepartmentName = "Recreation" AND ItemColour = "Brown";  
 
 #6
 
