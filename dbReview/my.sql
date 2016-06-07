@@ -216,9 +216,10 @@ SELECT count(*) FROM
 (SELECT DISTINCT SupplierName, DepartmentName FROM Delivery NATURAL JOIN Item NATURAL JOIN Department NATURAL JOIN Supplier
 WHERE ItemType = 'E' ) AS tempname; 
 
-##seems unsafe distinct
+##seems unsafe distinct. it's ok but we have to use distinct for multi-column
 SELECT count( DISTINCT SupplierName, DepartmentName) FROM Delivery NATURAL JOIN Item NATURAL JOIN Department NATURAL JOIN Supplier
 WHERE ItemType = 'E'; 
+
 
 #31
 SELECT AVG(EmployeeSalary) FROM Employee; 
@@ -227,4 +228,57 @@ select * from vAvgSalaryDept;
 select dpavgsal from vAvgSalaryDept;
 SELECT AVG(dpavgsal) FROM vAvgSalaryDept;
 
-#32
+#32???
+
+#33???
+
+#34
+SELECT DISTINCT ItemID FROM Sale INNER JOIN Department 
+ON Department.DepartmentID = Sale.DepartmentID 
+WHERE DepartmentFloor = 2; 
+
+SELECT DISTINCT ItemID FROM Sale 
+WHERE DepartmentID IN 
+(SELECT DepartmentID FROM Department  
+WHERE DepartmentFloor = 2); 
+
+SELECT DISTINCT ItemID FROM Sale 
+WHERE DepartmentID IN 
+(SELECT DepartmentID FROM Department 
+WHERE Department.DepartmentID = Sale.DepartmentID 
+AND DepartmentFloor = 2); 
+
+SELECT Count(DepartmentID )FROM Department  
+WHERE DepartmentFloor = 2;
+
+SELECT Count(distinct DepartmentID )FROM Department NATURAL JOIN Sale
+WHERE DepartmentFloor = 2;
+
+#35
+SELECT DISTINCT ItemID FROM Sale 
+WHERE ItemID NOT IN 
+(SELECT DISTINCT ItemID FROM Sale NATURAL JOIN Department 
+WHERE DepartmentFloor = 2); 
+
+#36???????????
+
+#37
+SELECT DISTINCT DepartmentName FROM Sale  
+NATURAL JOIN Department D  
+WHERE ItemID = 17 
+AND D.DepartmentID IN  
+(SELECT DepartmentID FROM Employee 
+GROUP BY DepartmentID  
+HAVING SUM(EmployeeSalary) > 25000) 
+
+#38?????
+-- SELECT EmployeeID,EmployeeName, EmployeeSalary FROM Employee 
+-- WHERE EmployeeID IN 
+-- (SELECT BossID FROM Employee  
+-- WHERE EmployeeName = 'Clare'); 
+select EmployeeName,EmployeeSalary from Employee where EmployeeID IN (select BossID from Employee where EmployeeName = 'Clare');
+
+SELECT BossID FROM Employee  
+WHERE EmployeeName = 'Clare'; 
+
+#39
