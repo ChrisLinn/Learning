@@ -424,10 +424,26 @@ WHERE EmployeeSalary <
 (SELECT AVG(EmployeeSalary)*0.60 FROM Employee); 
 
 #11
+SELECT COUNT(EmployeeID) FROM Employee 
+WHERE EmployeeSalary < 15000; 
 
 #12
+SELECT ItemName, COUNT(SaleQTY) AS UnitsSold  
+FROM Sale NATURAL JOIN Item 
+GROUP BY ItemName; 
 
 #13
+#wth? how come??? so many times doing this weird logic, how come???
+SELECT SupplierName, COUNT(Supplier.SupplierID) FROM Delivery INNER JOIN Supplier 
+ON Supplier.SupplierID = Delivery.SupplierID 
+GROUP BY SupplierName 
+HAVING COUNT(Supplier.SupplierID) <= 2; 
+#mine
+SELECT SupplierName, COUNT(Delivery.DeliveryID FROM Delivery INNER JOIN Supplier 
+ON Supplier.SupplierID = Delivery.SupplierID 
+GROUP BY SupplierName 
+HAVING COUNT(Delivery.DeliveryID) <= 2; 
+
 
 #14
 
