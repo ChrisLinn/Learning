@@ -309,7 +309,7 @@ WHERE ItemID NOT IN
 (SELECT DISTINCT ItemID FROM Sale NATURAL JOIN Department 
 WHERE DepartmentFloor = 2); 
 
-#36???????????
+#36  very very useful
 SELECT Sale.ItemID FROM Sale NATURAL JOIN Department 
 WHERE Department.DepartmentFloor = 2 
 GROUP BY Sale.ItemID 
@@ -317,14 +317,12 @@ HAVING count(DISTINCT Department.DepartmentID) =
 (SELECT count(DISTINCT DepartmentID) FROM Department 
 WHERE DepartmentFloor = 2); 
 #using relational division?
--- SELECT Sale.ItemID FROM Sale NATURAL JOIN Department 
--- where not EXISTS
--- (select * from Sale NATURAL JOIN Department where not EXISTS
--- 	(select * from Sale NATURAL JOIN Department 
--- 	where WHERE DepartmentFloor = 2)
--- )
--- GROUP BY Sale.ItemID ; 
-
+SELECT distinct Sale.ItemID FROM Sale 
+where not EXISTS
+(select * from Department where DepartmentFloor = 2 and  not EXISTS
+	(select * from Sale as innerSale
+	WHERE    innerSale.DepartmentID= Department.DepartmentID and Sale.ItemID= innerSale.ItemID)
+);
 
 #37
 SELECT DISTINCT DepartmentName FROM Sale  
