@@ -175,7 +175,7 @@ FROM Employee
 GROUP BY DepartmentID 
 HAVING AVG(EmployeeSalary) > 25000; 
 
-#25??????????????????????????????
+#25 use view
 CREATE VIEW vAvgSalaryDept (DepartmentID, dpavgsal) AS 
 SELECT DepartmentID, AVG(EmployeeSalary) FROM Employee 
 GROUP BY DepartmentID; 
@@ -210,6 +210,7 @@ AND DepartmentID IN
 #don't use  a  view
 
 #28!!!!!!!!!!!!!!!!!!!!
+
 #29
 CREATE VIEW vAvgSalary(allavgsal) AS 
 SELECT AVG(EmployeeSalary) FROM Employee;  
@@ -234,7 +235,7 @@ SELECT count(*) FROM
 (SELECT DISTINCT SupplierName, DepartmentName FROM Delivery NATURAL JOIN Item NATURAL JOIN Department NATURAL JOIN Supplier
 WHERE ItemType = 'E' ) AS tempname; 
 
-##seems unsafe distinct. it's ok but we have to use distinct for multi-column
+##seems unsafe distinct (no syntax highlight). it's ok but we have to use distinct for multi-column
 SELECT count( DISTINCT SupplierName, DepartmentName) FROM Delivery NATURAL JOIN Item NATURAL JOIN Department NATURAL JOIN Supplier
 WHERE ItemType = 'E'; 
 
@@ -246,9 +247,25 @@ select * from vAvgSalaryDept;
 select dpavgsal from vAvgSalaryDept;
 SELECT AVG(dpavgsal) FROM vAvgSalaryDept;
 
-#32???
+#32 so long the question. two level (i.e. group by)
+SELECT Delivery.SupplierID, SupplierName, Item.ItemName,  
+FORMAT(AVG(DeliveryQTY),2) AS AvgDelQty 
+FROM Delivery INNER JOIN Supplier INNER JOIN Item 
+ON Delivery.SupplierID = Supplier.SupplierID 
+AND Delivery.ItemID = Item.ItemID 
+WHERE ItemType = 'N' 
+GROUP BY Delivery.SupplierID, SupplierName, Item.ItemName; 
 
-#33???
+#33 three level (i.e. group by)
+SELECT Delivery.SupplierID, SupplierName, DepartmentID,  
+Item.ItemName,  
+FORMAT(AVG(DeliveryQTY),2) AS DelQTY 
+FROM Delivery INNER JOIN Supplier INNER JOIN Item 
+ON Delivery.SupplierID = Supplier.SupplierID 
+AND Delivery.ItemID = Item.ItemID 
+WHERE ItemType = 'N' 
+GROUP BY Delivery.SupplierID, SupplierName,  
+DepartmentID, Item.ItemName; 
 
 #34
 SELECT DISTINCT ItemID FROM Sale INNER JOIN Department 
@@ -279,6 +296,21 @@ WHERE ItemID NOT IN
 WHERE DepartmentFloor = 2); 
 
 #36???????????
+SELECT Sale.ItemID FROM Sale NATURAL JOIN Department 
+WHERE Department.DepartmentFloor = 2 
+GROUP BY Sale.ItemID 
+HAVING count(DISTINCT Department.DepartmentID) = 
+(SELECT count(DISTINCT DepartmentID) FROM Department 
+WHERE DepartmentFloor = 2); 
+#using relational division?
+-- SELECT Sale.ItemID FROM Sale NATURAL JOIN Department 
+-- where not EXISTS
+-- (select * from Sale NATURAL JOIN Department where not EXISTS
+-- 	(select * from Sale NATURAL JOIN Department 
+-- 	where WHERE DepartmentFloor = 2)
+-- )
+-- GROUP BY Sale.ItemID ; 
+
 
 #37
 SELECT DISTINCT DepartmentName FROM Sale  
@@ -298,7 +330,7 @@ WHERE EmployeeName = 'Clare');
 SELECT BossID FROM Employee  
 where EmployeeName = 'Clare'; 
 
-#39!!!!
+#39
 SELECT boss.EmployeeID, boss.EmployeeName, COUNT(*) 
 FROM Employee wrk INNER JOIN Employee boss 
 ON wrk.BossID = boss.EmployeeID 
@@ -312,18 +344,18 @@ GROUP BY boss.EmployeeID, boss.EmployeeName;
 -- ON wrk.BossID = boss.EmployeeID 
 -- WHERE wrk.EmployeeSalary >= boss.EmployeeSalary); 
 
-#41???????????
--- SELECT DISTINCT DepartmentName FROM Sale NATURAL JOIN Department 
--- WHERE ItemID IN 
--- (SELECT Item.ItemID FROM Item INNER JOIN Delivery  
--- INNER JOIN Supplier 
--- ON Item.ItemID = Delivery.ItemID  
--- AND Delivery.SupplierID = Supplier.SupplierID 
--- WHERE SupplierName = 'Nepalese Corp.' 
--- AND ItemType = 'E') 
--- OR ItemID IN 
--- (SELECT ItemID FROM Sale NATURAL JOIN Department 
--- WHERE DepartmentName = 'Navigation'); 
+#41amazing
+SELECT DISTINCT DepartmentName FROM Sale NATURAL JOIN Department 
+WHERE ItemID IN 
+(SELECT Item.ItemID FROM Item INNER JOIN Delivery  
+INNER JOIN Supplier 
+ON Item.ItemID = Delivery.ItemID  
+AND Delivery.SupplierID = Supplier.SupplierID 
+WHERE SupplierName = 'Nepalese Corp.' 
+AND ItemType = 'E') 
+OR ItemID IN 
+(SELECT ItemID FROM Sale NATURAL JOIN Department 
+WHERE DepartmentName = 'Navigation'); 
 
 #42??????
 -- SELECT COUNT(*) > 0 FROM Department 
