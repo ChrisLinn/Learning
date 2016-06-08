@@ -517,7 +517,11 @@ ORDER BY boss.EmployeeName, emp.EmployeeName;
 SELECT EmployeeName FROM Employee 
 WHERE EmployeeSalary = (SELECT MIN(EmployeeSalary) FROM Employee); 
 
-#23
+#23 could I use count?
+SELECT DISTINCT ItemName FROM Delivery NATURAL JOIN Item 
+WHERE Delivery.ItemID NOT IN 
+(SELECT DISTINCT ItemID FROM Delivery NATURAL JOIN Department 
+ WHERE DepartmentName = 'Books'); 
 
 #24
 
@@ -526,6 +530,9 @@ WHERE EmployeeSalary = (SELECT MIN(EmployeeSalary) FROM Employee);
 #26
 
 #27
+SELECT DISTINCT ItemName FROM Item WHERE ItemID NOT IN 
+(SELECT ItemID FROM Delivery NATURAL JOIN Supplier 
+WHERE SupplierName = "Nepalese Corp."); 
 
 #28
 
