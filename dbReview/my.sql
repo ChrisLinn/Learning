@@ -191,7 +191,7 @@ FORMAT(EmployeeSalary - dpavgsal,2) AS DiffEAvgDSal
 FROM vAvgSalaryDept NATURAL JOIN Employee 
 WHERE vAvgSalaryDept.DepartmentID =  Employee.DepartmentID; 
 
-#27~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#27 quite hard quite hard, humm
 #use view
 ##create a view
 CREATE VIEW vDeptFloor2ItemB AS 
@@ -207,9 +207,23 @@ SELECT SupplierName FROM Supplier WHERE NOT EXISTS
 AND Delivery.SupplierID = Supplier.SupplierID 
 AND DepartmentID IN  
 (SELECT DepartmentID FROM vDeptFloor2ItemB))); 
+#for test. understading: no non-shown r 
+SELECT DepartmentID FROM Department 
+WHERE DepartmentFloor = 2 AND NOT EXISTS  
+(SELECT * FROM Item WHERE ItemType = 'R' AND NOT EXISTS  
+(SELECT * FROM Sale WHERE Sale.ItemID = Item.ItemID 
+AND Sale.DepartmentID = Department.DepartmentID));
+
+SELECT DepartmentID,ItemName,ItemType,SaleID FROM Department natural join Sale natural join Item
+WHERE DepartmentFloor = 2  ;
+
+select * from Item;
+
 #don't use  a  view
+#just ignore it, we can do views first then migrate them to subquery
 
 #28!!!!!!!!!!!!!!!!!!!!
+
 
 #29
 CREATE VIEW vAvgSalary(allavgsal) AS 
