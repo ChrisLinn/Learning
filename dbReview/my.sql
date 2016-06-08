@@ -31,7 +31,7 @@ SELECT emp.EmployeeID, emp.EmployeeName  FROM Employee emp INNER JOIN Employee b
 #7
 SELECT wrk.EmployeeName, wrk.DepartmentID,  boss.EmployeeName  FROM Employee wrk INNER JOIN Employee boss  ON wrk.BossID = boss.EmployeeID  WHERE wrk.DepartmentID = boss.DepartmentID;
 
-#8!!!
+#8
 SELECT wrk.EmployeeName, wrk.EmployeeSalary, 
 boss.EmployeeName 
 FROM Employee wrk INNER JOIN Employee boss 
@@ -39,28 +39,47 @@ ON wrk.BossID = boss.EmployeeID
 WHERE wrk.DepartmentID = 11
 AND wrk.EmployeeSalary > 25000; 
 
-#9~~~
+#9 how to understand this?
 SELECT EmployeeName, EmployeeSalary FROM Employee 
 WHERE EmployeeSalary > 
 (SELECT MAX(EmployeeSalary)  
 FROM Employee NATURAL JOIN Department 
 WHERE DepartmentName = "Marketing "); 
+# or this?
+SELECT EmployeeName, EmployeeSalary,DepartmentName FROM Employee NATURAL JOIN Department 
+WHERE DepartmentName = "Marketing " and EmployeeSalary > 
+(SELECT MAX(EmployeeSalary)  
+FROM Employee NATURAL JOIN Department 
+WHERE DepartmentName = "Marketing "); 
+#for test
+SELECT EmployeeName, EmployeeSalary,DepartmentName FROM Employee NATURAL JOIN Department 
+WHERE EmployeeSalary > 
+(SELECT MAX(EmployeeSalary)  
+FROM Employee NATURAL JOIN Department 
+WHERE DepartmentName = "Marketing "); 
 
-#10!!!
+#10 cool
 SELECT EmployeeName, EmployeeSalary FROM Employee 
 WHERE EmployeeID IN 
 (SELECT BossID FROM Employee 
 GROUP BY BossID  
 HAVING COUNT(*) > 2); 
 
-#11!!!
+#11 so maybe I will have to use not in
 SELECT SupplierID, SupplierName FROM Supplier 
 WHERE SupplierID NOT IN 
 (SELECT SupplierID FROM Delivery  
 NATURAL JOIN Item  
 WHERE ItemName = 'Compass'); 
+#####the below won't work. because it will have to be empty
+SELECT SupplierID, SupplierName FROM Supplier 
+WHERE SupplierID IN 
+(SELECT SupplierID FROM Delivery  
+NATURAL JOIN Item  
+WHERE ItemName = 'Compass'
+having count(*)=0); 
 
-#12!!!
+#12
 SELECT Supplier.SupplierID, SupplierName FROM Delivery 
 NATURAL JOIN Supplier NATURAL JOIN Item 
 WHERE ItemType = 'N' 
@@ -321,7 +340,6 @@ WHERE ItemID NOT IN
 (SELECT ItemID FROM Delivery 
 WHERE Delivery.SupplierID <> del1.SupplierID); 
 #how about this? distinct is neccessary.2 also uses this approach 
-##???????????????wierd, why I have to put group by beforeward? may not be good.
 SELECT DISTINCT Supplier.SupplierID, SupplierName, ItemID 
 FROM Supplier NATURAL JOIN Delivery
 Group  by ItemID
