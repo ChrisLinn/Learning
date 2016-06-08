@@ -11,8 +11,10 @@ SELECT DISTINCT ItemID FROM Sale INNER JOIN Department ON Sale.DepartmentID = De
 
 SELECT DISTINCT ItemID FROM Sale natural JOIN Department WHERE DepartmentFloor <> 2;
 
-#!!!
-SELECT ItemID FROM Sale NATURAl JOIN Department WHERE DepartmentFloor = 2 GROUP BY ItemID HAVING COUNT(DISTINCT Department.DepartmentID) > 1;
+SELECT ItemID FROM Sale NATURAl JOIN Department 
+WHERE DepartmentFloor = 2 
+GROUP BY ItemID 
+HAVING COUNT(DISTINCT Department.DepartmentID) > 1;
 
 #3
 SELECT DISTINCT Supplier.SupplierID, SupplierName   FROM Supplier INNER JOIN Delivery INNER JOIN Item  ON Supplier.SupplierID = Delivery.SupplierID   AND Item.ItemID = Delivery.ItemID  WHERE ItemName = 'Compass'; 
@@ -318,13 +320,13 @@ FROM Supplier NATURAL JOIN Delivery del1
 WHERE ItemID NOT IN 
 (SELECT ItemID FROM Delivery 
 WHERE Delivery.SupplierID <> del1.SupplierID); 
-##?????????????????????????????????????????????????
-#how about this #distinct is neccessary. wierd, why I cannot put group by beforeward? may not be good.
--- SELECT DISTINCT Supplier.SupplierID, SupplierName, ItemID 
--- FROM Supplier NATURAL JOIN Delivery del1
--- HAVING count(distinct SupplierID)=1 #is distinct that important?
--- Group  by ItemID
--- ;
+#how about this? distinct is neccessary.2 also uses this approach 
+##???????????????wierd, why I have to put group by beforeward? may not be good.
+SELECT DISTINCT Supplier.SupplierID, SupplierName, ItemID 
+FROM Supplier NATURAL JOIN Delivery
+Group  by ItemID
+HAVING count(distinct SupplierID)=1
+;
 
 #44???
 
