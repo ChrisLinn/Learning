@@ -191,7 +191,7 @@ FORMAT(EmployeeSalary - dpavgsal,2) AS DiffEAvgDSal
 FROM vAvgSalaryDept NATURAL JOIN Employee 
 WHERE vAvgSalaryDept.DepartmentID =  Employee.DepartmentID; 
 
-#27~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#27 quite hard quite hard, humm
 #use view
 ##create a view
 CREATE VIEW vDeptFloor2ItemB AS 
@@ -207,9 +207,23 @@ SELECT SupplierName FROM Supplier WHERE NOT EXISTS
 AND Delivery.SupplierID = Supplier.SupplierID 
 AND DepartmentID IN  
 (SELECT DepartmentID FROM vDeptFloor2ItemB))); 
+#for test. understading: no non-shown r 
+SELECT DepartmentID FROM Department 
+WHERE DepartmentFloor = 2 AND NOT EXISTS  
+(SELECT * FROM Item WHERE ItemType = 'R' AND NOT EXISTS  
+(SELECT * FROM Sale WHERE Sale.ItemID = Item.ItemID 
+AND Sale.DepartmentID = Department.DepartmentID));
+
+SELECT DepartmentID,ItemName,ItemType,SaleID FROM Department natural join Sale natural join Item
+WHERE DepartmentFloor = 2  ;
+
+select * from Item;
+
 #don't use  a  view
+#just ignore it, we can do views first then migrate them to subquery
 
 #28!!!!!!!!!!!!!!!!!!!!
+
 
 #29
 CREATE VIEW vAvgSalary(allavgsal) AS 
@@ -295,7 +309,7 @@ WHERE ItemID NOT IN
 (SELECT DISTINCT ItemID FROM Sale NATURAL JOIN Department 
 WHERE DepartmentFloor = 2); 
 
-#36???????????
+#36  very very useful
 SELECT Sale.ItemID FROM Sale NATURAL JOIN Department 
 WHERE Department.DepartmentFloor = 2 
 GROUP BY Sale.ItemID 
@@ -303,14 +317,12 @@ HAVING count(DISTINCT Department.DepartmentID) =
 (SELECT count(DISTINCT DepartmentID) FROM Department 
 WHERE DepartmentFloor = 2); 
 #using relational division?
--- SELECT Sale.ItemID FROM Sale NATURAL JOIN Department 
--- where not EXISTS
--- (select * from Sale NATURAL JOIN Department where not EXISTS
--- 	(select * from Sale NATURAL JOIN Department 
--- 	where WHERE DepartmentFloor = 2)
--- )
--- GROUP BY Sale.ItemID ; 
-
+SELECT distinct Sale.ItemID FROM Sale 
+where not EXISTS
+(select * from Department where DepartmentFloor = 2 and  not EXISTS
+	(select * from Sale as innerSale
+	WHERE    innerSale.DepartmentID= Department.DepartmentID and Sale.ItemID= innerSale.ItemID)
+);
 
 #37
 SELECT DISTINCT DepartmentName FROM Sale  
