@@ -381,6 +381,12 @@ HAVING count(distinct SupplierID)=1
 #44???
 
 #45
+SELECT Delivery.SupplierID, SupplierName, DepartmentName,  
+FORMAT(AVG(DeliveryQTY),2) AS AverageDeliveryQTY 
+FROM Supplier NATURAL JOIN Delivery  
+NATURAL JOIN Department 
+GROUP BY Delivery.SupplierID, SupplierName,  
+DepartmentName; 
 
 #46
 
