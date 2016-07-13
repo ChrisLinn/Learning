@@ -60,14 +60,14 @@
    \\\item Functions in Haskell don't have to be in any particular order, so it doesn't matter if you define \texttt{doubleMe} first and then \texttt{doubleUs} or if you do it the other way around.
    \\\item \texttt{if} statement:
    \\\texttt{doubleSmallNumber x = if x > 100}
-   \\\texttt{..........................then x}
-   \\\texttt{........................else x*2}
+   \\\texttt{......................then x}
+   \\\texttt{......................else x*2}
    \\(Each '.' indicates a space. Because I fail to create spaces :P)
    \begin{itemize}
     \item the \texttt{else} part is mandatory in Haskell.
     \item \texttt{if} statement in Haskel is an expression:
     \\\texttt{doubleSmallNumber' x = (if x > 100 then x else x*2) + 1}
-    \\\textbf{notes:} That apostrophe (') doesn't have any special meaning in Haskell's syntax. It's a valid character to use in a function name. We usually use ' to either denote a strict version of a function (one that isn't lazy) or a slightly modified version of a function or a
+    \\\textbf{notes:} That apostrophe (') doesn't have any special meaning. It's ok in a function name. We usually use ' to either denote a strict version of a function (one that isn't lazy) or a slightly modified version of a function or a
 variable.\\
    \end{itemize}
    \item what is more:
