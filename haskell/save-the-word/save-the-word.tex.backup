@@ -1,0 +1,147 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+%\usepackage{listings}
+
+\title{Save-the-word Haskell}
+\author{Chris Lin}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+ \item The easiest way: Haskell platform
+ \begin{enumerate}
+  \item GHC: the most widely used Haskell compiler.\\
+  How to use:
+  \begin{itemize}
+   \item Start (use them both, one by one):
+   \\\texttt{ghci}
+   \\\texttt{:set prompt "ghci> "}
+   \item Load up a file (provided \textbf{myfunctions}.hs): 
+   \\\texttt{:l} \textbf{myfunctions}
+   \item Reload:
+   \\\texttt{:r}
+  \end{itemize}
+ \end{enumerate}
+ \item Basic knowledge
+ \begin{enumerate}
+  \item Always surround a negative number with parentheses.
+  \item inequality symbol:
+  \\\texttt{/=}
+  \\(watch out for the difference between \texttt{4} and \texttt{"4"})
+  \item function
+  \begin{itemize}
+  \item Functions are called by writing the function name, a space and then the parameters, separated by spaces. For examples,
+  \\\texttt{min 9 10}
+  \\So,
+  \\\texttt{bar (bar 3)} means \texttt{bar(bar(3))} in C.
+  \\And there is no \texttt{bar(bar 3)} in Haskell.
+  \item Function application has the highest precedence, which means these two statements are equivalent:
+  \\\texttt{succ 9 + max 5 4 + 1}
+  \\\texttt{(succ 9) + (max 5 4) + 1}
+  \item If a function takes two parameters, we can also call it as an infix function by surrounding it with backticks.
+  \\\texttt{div 92 10}
+  \\\texttt{92 \`{}div\`{} 10}
+  \item Write your own functions:
+  \begin{itemize}
+   \item how to make functions (contents in \textbf{myfilename}.hs):
+   \\\texttt{doubleMe x = x + x}
+   \\\item how to make use of it:
+   \\\texttt{:l }\textbf{myfilename}
+   \\\texttt{doubleMe 9}
+   \\\item some examples:
+   \\\texttt{doubleMe x = x + x}
+   \\\texttt{doubleUs x y = x*2 + y*2}
+   \\\\(by having these, we can also run: 
+   \\\texttt{doubleUs 28 88 + doubleMe 123})
+   \\\\(we can also redefine the function \texttt{doubleUs} as:
+   \\\texttt{doubleUs x y = doubleMe x + doubleMe y})
+   \\\\\item Functions in Haskell don't have to be in any particular order, so it doesn't matter if you define \texttt{doubleMe} first and then \texttt{doubleUs} or if you do it the other way around.
+   \\\item \texttt{if} statement:
+   \\\texttt{doubleSmallNumber x = if x > 100}
+   \\\texttt{......................then x}
+   \\\texttt{......................else x*2}
+   \\\\(Each '.' indicates a space. Because I fail to create spaces :P)\\
+   \begin{itemize}
+    \item the \texttt{else} part is mandatory in Haskell.
+    \item \texttt{if} statement in Haskel is an expression:
+    \\\texttt{doubleSmallNumber' x = (if x > 100 then x else x*2) + 1}
+    \\\textbf{notes:} That apostrophe (') doesn't have any special meaning. It's ok in a function name. We usually use ' to either denote a strict version of a function (one that isn't lazy) or a slightly modified version of a function or a
+variable.\\
+   \end{itemize}
+   \item what is more:
+   \begin{itemize}
+    \item Functions can't begin with uppercase letters.
+    \item When a function doesn't take any parameters, we usually say it's a definition (or a name):
+    \\\texttt{conanO'Brien = "It's a-me, Conan O'Brien!"}
+   \end{itemize}
+  \end{itemize}
+  \end{itemize}
+  \item lists
+  \begin{itemize}
+   \item list basic
+  \begin{itemize}
+   \item elements need to be of the same type
+   \item make a list:
+   \\\texttt{let lostNumbers = [4,8,15,16,23,42]}
+   \\(Doing \texttt{let a = 1} inside GHCI is the equivalent of writing \texttt{a = 1} in a script and then loading it.)
+   \item  strings are lists of characters
+   \item putting two lists together:
+   \begin{itemize}
+    \item \texttt{[1,2,3,4] ++ [9,10,11,12]}
+    \\(take a while if the left one is too big)
+    \\\item \texttt{'A':" SMALL CAT"}
+    \\(instantaneous)
+    \\\item \texttt{}{:} takes a number and a list of numbers or a character and a list of characters, whereas \texttt{++} takes two lists. 
+    \\\\(So if you're adding an element to the end of a list with ++ , you have to surround it with square brackets so it becomes a list.)
+    \\\\(\texttt{[1,2,3]} means \texttt{1:2:3:[]} or \texttt{1:2:[3]})\\
+   \end{itemize}
+   \item \texttt{[]} , \texttt{[[]]} and \texttt{[[] , [] , []]} are different:
+   \\an empty list;
+   \\a list that contains one empty list;
+   \\a list that contains three empty lists.
+   \item access an element by index (start from 0):
+   \\\texttt{"Steve Buscemi" !! 6}
+   \\\texttt{[9.4,33.2,96.2,11.2,23.25] !! 1}
+   \item The lists within a list can be of different lengths but they can't be of different types. 
+   \item Lists can be compared if the stuff they contain can be compared, and they are compared in lexicographical order from left to right.
+   \\\texttt{[3,4,2] > [3,4]}
+   \item Basic functions that operate on lists:
+   \\\\\texttt{head}, \texttt{last}, \texttt{tail}, \texttt{init}
+   \\Be careful not to use them on empty lists. 
+   \\\\\texttt{length}, \texttt{null}, \texttt{reverse}, \texttt{take}, \texttt{drop}, \texttt{maximum}, \texttt{minimum}, \texttt{sum}, \texttt{product}, \texttt{elem}\\
+  \end{itemize}
+  \item Ranges
+  \begin{itemize}
+   \item examples:
+   \\\texttt{[1..20]}
+   \\\texttt{['K'..'Z']}
+   \\\texttt{[3,6..20]} (end up with 18)
+   \\\texttt{[20,19..1]}
+   \item Don't use floating point numbers in ranges! Because they are not completely precise.
+   \item Can also use ranges to make infinite lists by just not specifying an upper limit:
+   \\\texttt{take 24 [13,26..]}
+   \\\texttt{take 10 (repeat 5)}
+   \\\texttt{take 10 (cycle [1,2,3])}
+   \\\\(Because Haskell is lazy, it won't try to evaluate the infinite list immediately because it would never finish. It'll wait to see what you want to get out of that infinite lists. )
+   \\\\(If you want exact number of the same element in a list, you wiil need \texttt{replicate} instead of \texttt{repeat}, like: \texttt{replicate 3 10}.)\\
+  \end{itemize}
+  \item list comprehension:
+  \\\\\texttt{[x*2 | x <- [1..10]]}
+  \\\\\texttt{[x*2 | x <- [1..10], x*2 >= 12]}
+  \\\\\texttt{[ x | x <- [50..100], x \`{}mod\`{} 7 == 3]}
+  \\\\\texttt{boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x]}
+  \\\texttt{boomBangs [7..13]}
+  \\\\\texttt{[ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]}
+  \\\\\texttt{let nouns = ["hobo","frog","pope"]}
+  \\\texttt{let adjectives = ["lazy","grouchy","scheming"]}
+  \\\texttt{[adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]}
+  \\(notice the order of the result)
+  \\\texttt{removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]}
+  \end{itemize}
+  \end{enumerate}
+\end{enumerate}
+\end{document}
