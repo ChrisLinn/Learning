@@ -1,3 +1,4 @@
+%need to fix single quote!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 \documentclass[a4paper,10pt]{article}
 %\documentclass[a4paper,10pt]{scrartcl}
 
@@ -130,17 +131,37 @@ variable.\\
    \\\\(If you want exact number of the same element in a list, you wiil need \texttt{replicate} instead of \texttt{repeat}, like: \texttt{replicate 3 10}.)\\
   \end{itemize}
   \item list comprehension:
-  \\\\\texttt{[x*2 | x <- [1..10]]}
-  \\\\\texttt{[x*2 | x <- [1..10], x*2 >= 12]}
-  \\\\\texttt{[ x | x <- [50..100], x \`{}mod\`{} 7 == 3]}
-  \\\\\texttt{boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x]}
-  \\\texttt{boomBangs [7..13]}
-  \\\\\texttt{[ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]}
-  \\\\\texttt{let nouns = ["hobo","frog","pope"]}
-  \\\texttt{let adjectives = ["lazy","grouchy","scheming"]}
-  \\\texttt{[adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]}
-  \\(notice the order of the result)
-  \\\texttt{removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]}
+  \begin{itemize}
+   \item \texttt{[x*2 | x <- [1..10]]}
+   \item \texttt{[x*2 | x <- [1..10], x*2 >= 12]}
+   \item \texttt{[ x | x <- [50..100], x \`{}mod\`{} 7 == 3]}
+   \item \texttt{boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x]}
+   \\\texttt{boomBangs [7..13]}
+   \item \texttt{[ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]}
+   \item \texttt{let nouns = ["hobo","frog","pope"]}
+   \\\texttt{let adjectives = ["lazy","grouchy","scheming"]}
+   \\\texttt{[adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]}
+   \\(notice the order of the result)
+   \item \texttt{length' xs = sum [1 | \_ <- xs]}
+   \\(\_ means that we don't care what we'll draw from the list anyway)
+   \item \texttt{removeNonUppercase st = [ c | c <- st, c \`{}elem\`{} ['A'..'Z']]}
+   \item Nested list comprehensions
+   \item \texttt{[x*2 | x <- [1..10]]}
+   \item \texttt{[x*2 | x <- [1..10]]}
+   \item \texttt{[x*2 | x <- [1..10]]}
+  \end{itemize}
+
+  
+  
+  (notice the order of the result)
+  \\\\\texttt{length' xs = sum [1 | \_ <- xs]}
+  \\(\_ means that we don't care what we'll draw from the list anyway)
+  \\\\\texttt{removeNonUppercase st = [ c | c <- st, c \`{}elem\`{} ['A'..'Z']]}
+  \\\\ Nested list comprehensions
+  \\\texttt{let xxs = [[1,3,5,2,3,1,2,4,5], [1,2,3,4,5,6,7,8,9], }
+  \\\texttt{[1,2,4,2,1,6,3,1,3,2,3,6]]}
+  \\\texttt{[ [ x | x <- xs, even x ] | xs <- xxs]}
+  \\(You can write list comprehensions across several lines. )
   \end{itemize}
   \end{enumerate}
 \end{enumerate}

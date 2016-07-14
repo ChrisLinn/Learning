@@ -1,9 +1,9 @@
-%need to fix single quote!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 \documentclass[a4paper,10pt]{article}
 %\documentclass[a4paper,10pt]{scrartcl}
 
 \usepackage[utf8]{inputenc}
-%\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage{upquote}
 
 \title{Save-the-word Haskell}
 \author{Chris Lin}
@@ -69,15 +69,15 @@
    \begin{itemize}
     \item the \texttt{else} part is mandatory in Haskell.
     \item \texttt{if} statement in Haskel is an expression:
-    \\\texttt{doubleSmallNumber' x = (if x > 100 then x else x*2) + 1}
-    \\\textbf{notes:} That apostrophe (') doesn't have any special meaning. It's ok in a function name. We usually use ' to either denote a strict version of a function (one that isn't lazy) or a slightly modified version of a function or a
+    \\\texttt{doubleSmallNumber\textquotesingle \ x = (if x > 100 then x else x*2) + 1}
+    \\\textbf{notes:} That apostrophe (\textquotesingle) doesn't have any special meaning. It's ok in a function name. We usually use \textquotesingle \ to either denote a strict version of a function (one that isn't lazy) or a slightly modified version of a function or a
 variable.\\
    \end{itemize}
    \item what is more:
    \begin{itemize}
     \item Functions can't begin with uppercase letters.
     \item When a function doesn't take any parameters, we usually say it's a definition (or a name):
-    \\\texttt{conanO'Brien = "It's a-me, Conan O'Brien!"}
+    \\\texttt{conanO\textquotesingle Brien = "It\textquotesingle s a-me, Conan O\textquotesingle Brien!"}
    \end{itemize}
   \end{itemize}
   \end{itemize}
@@ -94,7 +94,7 @@ variable.\\
    \begin{itemize}
     \item \texttt{[1,2,3,4] ++ [9,10,11,12]}
     \\(take a while if the left one is too big)
-    \\\item \texttt{'A':" SMALL CAT"}
+    \\\item \texttt{\textquotesingle A\textquotesingle:" SMALL CAT"}
     \\(instantaneous)
     \\\item \texttt{}{:} takes a number and a list of numbers or a character and a list of characters, whereas \texttt{++} takes two lists. 
     \\\\(So if you're adding an element to the end of a list with ++ , you have to surround it with square brackets so it becomes a list.)
@@ -119,7 +119,7 @@ variable.\\
   \begin{itemize}
    \item examples:
    \\\texttt{[1..20]}
-   \\\texttt{['K'..'Z']}
+   \\\texttt{[\textquotesingle K\textquotesingle ..\textquotesingle Z\textquotesingle ]}
    \\\texttt{[3,6..20]} (end up with 18)
    \\\texttt{[20,19..1]}
    \item Don't use floating point numbers in ranges! Because they are not completely precise.
@@ -131,24 +131,25 @@ variable.\\
    \\\\(If you want exact number of the same element in a list, you wiil need \texttt{replicate} instead of \texttt{repeat}, like: \texttt{replicate 3 10}.)\\
   \end{itemize}
   \item list comprehension:
-  \\\\\texttt{[x*2 | x <- [1..10]]}
-  \\\\\texttt{[x*2 | x <- [1..10], x*2 >= 12]}
-  \\\\\texttt{[ x | x <- [50..100], x \`{}mod\`{} 7 == 3]}
-  \\\\\texttt{boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x]}
-  \\\texttt{boomBangs [7..13]}
-  \\\\\texttt{[ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]}
-  \\\\\texttt{let nouns = ["hobo","frog","pope"]}
-  \\\texttt{let adjectives = ["lazy","grouchy","scheming"]}
-  \\\texttt{[adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]}
-  \\(notice the order of the result)
-  \\\\\texttt{length' xs = sum [1 | \_ <- xs]}
-  \\(\_ means that we don't care what we'll draw from the list anyway)
-  \\\\\texttt{removeNonUppercase st = [ c | c <- st, c \`{}elem\`{} ['A'..'Z']]}
-  \\\\ Nested list comprehensions
-  \\\texttt{let xxs = [[1,3,5,2,3,1,2,4,5], [1,2,3,4,5,6,7,8,9], }
-  \\\texttt{[1,2,4,2,1,6,3,1,3,2,3,6]]}
-  \\\texttt{[ [ x | x <- xs, even x ] | xs <- xxs]}
-  \\(You can write list comprehensions across several lines. )
+  \begin{itemize}
+   \item \texttt{[x*2 | x <- [1..10]]}
+   \item \texttt{[x*2 | x <- [1..10], x*2 >= 12]}
+   \item \texttt{[ x | x <- [50..100], x \`{}mod\`{} 7 == 3]}
+   \item \texttt{boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x]}
+   \\\texttt{boomBangs [7..13]}
+   \item \texttt{[ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]}
+   \item \texttt{let nouns = ["hobo","frog","pope"]}
+   \\\texttt{let adjectives = ["lazy","grouchy","scheming"]}
+   \\\texttt{[adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]}
+   \\(notice the order of the result)
+   \item \texttt{length' xs = sum [1 | \_ <- xs]}
+   \\(\_ means that we don't care what we'll draw from the list anyway)
+   \item \texttt{removeNonUppercase st = [ c | c <- st, c \`{}elem\`{} [\textquotesingle A\textquotesingle..\textquotesingle Z\textquotesingle]]}
+   \item Nested list comprehensions:
+   \\\texttt{let xxs = [[1,3,5,2,3,1,2,4,5], [1,2,3,4,5,6,7,8,9], [1,2,4,2,1,6,3,1,3,2,3,6]]}
+   \\\texttt{[ [ x | x <- xs, even x ] | xs <- xxs]}
+   \\(You can write list comprehensions across several lines. )
+  \end{itemize}
   \end{itemize}
   \end{enumerate}
 \end{enumerate}
