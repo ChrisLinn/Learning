@@ -32,6 +32,8 @@
   \item inequality symbol:
   \\\texttt{/=}
   \\(watch out for the difference between \texttt{4} and \texttt{"4"})
+  \item function
+  \begin{itemize}
   \item Functions are called by writing the function name, a space and then the parameters, separated by spaces. For examples,
   \\\texttt{min 9 10}
   \\So,
@@ -53,16 +55,16 @@
    \\\item some examples:
    \\\texttt{doubleMe x = x + x}
    \\\texttt{doubleUs x y = x*2 + y*2}
-   \\\\by having these, we can also run: 
-   \\\texttt{doubleUs 28 88 + doubleMe 123}
-   \\\\we can also redefine the function \texttt{doubleUs} as:
-   \\\texttt{doubleUs x y = doubleMe x + doubleMe y}
-   \\\item Functions in Haskell don't have to be in any particular order, so it doesn't matter if you define \texttt{doubleMe} first and then \texttt{doubleUs} or if you do it the other way around.
+   \\\\(by having these, we can also run: 
+   \\\texttt{doubleUs 28 88 + doubleMe 123})
+   \\\\(we can also redefine the function \texttt{doubleUs} as:
+   \\\texttt{doubleUs x y = doubleMe x + doubleMe y})
+   \\\\\item Functions in Haskell don't have to be in any particular order, so it doesn't matter if you define \texttt{doubleMe} first and then \texttt{doubleUs} or if you do it the other way around.
    \\\item \texttt{if} statement:
    \\\texttt{doubleSmallNumber x = if x > 100}
    \\\texttt{......................then x}
    \\\texttt{......................else x*2}
-   \\(Each '.' indicates a space. Because I fail to create spaces :P)
+   \\\\(Each '.' indicates a space. Because I fail to create spaces :P)\\
    \begin{itemize}
     \item the \texttt{else} part is mandatory in Haskell.
     \item \texttt{if} statement in Haskel is an expression:
@@ -76,8 +78,31 @@ variable.\\
     \item When a function doesn't take any parameters, we usually say it's a definition (or a name):
     \\\texttt{conanO'Brien = "It's a-me, Conan O'Brien!"}
    \end{itemize}
- 
   \end{itemize}
- \end{enumerate}
+  \end{itemize}
+  \item lists
+  \begin{itemize}
+   \item elements need to be of the same type
+   \item make a list:
+   \\\texttt{let lostNumbers = [4,8,15,16,23,42]}
+   \\(Doing let a = 1 inside GHCI is the equivalent of writing a = 1 in a script and then loading it.)
+   \item  strings are lists of characters
+   \item putting two lists together:
+   \begin{itemize}
+    \item \texttt{[1,2,3,4] ++ [9,10,11,12]}
+    \\(take a while if the left one is too big)
+    \\\item \texttt{'A':" SMALL CAT"}
+    \\(instantaneous)
+    \\\item \texttt{}{:} takes a number and a list of numbers or a character and a list of characters, whereas \texttt{++} takes two lists. 
+    \\\\(So if you're adding an element to the end of a list with ++ , you have to surround it with square brackets so it becomes a list.)
+    \\\\(\texttt{[1,2,3]} means \texttt{1:2:3:[]} or \texttt{1:2:[3]})\\
+   \end{itemize}
+   \item \texttt{[]} , \texttt{[[]]} and \texttt{[[] , [] , []]} are different:
+   \\an empty list
+   \\a list that contains one empty list
+   \\a list that contains three empty lists
+  \end{itemize}
+
+  \end{enumerate}
 \end{enumerate}
 \end{document}
