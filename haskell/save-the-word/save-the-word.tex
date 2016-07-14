@@ -1,3 +1,4 @@
+%need to fix single quote!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 \documentclass[a4paper,10pt]{article}
 %\documentclass[a4paper,10pt]{scrartcl}
 
@@ -140,8 +141,14 @@ variable.\\
   \\\texttt{let adjectives = ["lazy","grouchy","scheming"]}
   \\\texttt{[adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]}
   \\(notice the order of the result)
-
-
+  \\\\\texttt{length' xs = sum [1 | \_ <- xs]}
+  \\(\_ means that we don't care what we'll draw from the list anyway)
+  \\\\\texttt{removeNonUppercase st = [ c | c <- st, c \`{}elem\`{} ['A'..'Z']]}
+  \\\\ Nested list comprehensions
+  \\\texttt{let xxs = [[1,3,5,2,3,1,2,4,5], [1,2,3,4,5,6,7,8,9], }
+  \\\texttt{[1,2,4,2,1,6,3,1,3,2,3,6]]}
+  \\\texttt{[ [ x | x <- xs, even x ] | xs <- xxs]}
+  \\(You can write list comprehensions across several lines. )
   \end{itemize}
   \end{enumerate}
 \end{enumerate}
