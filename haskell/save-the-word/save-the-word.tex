@@ -85,7 +85,7 @@ variable.\\
    \item elements need to be of the same type
    \item make a list:
    \\\texttt{let lostNumbers = [4,8,15,16,23,42]}
-   \\(Doing let a = 1 inside GHCI is the equivalent of writing a = 1 in a script and then loading it.)
+   \\(Doing \texttt{let a = 1} inside GHCI is the equivalent of writing \texttt{a = 1} in a script and then loading it.)
    \item  strings are lists of characters
    \item putting two lists together:
    \begin{itemize}
@@ -101,6 +101,16 @@ variable.\\
    \\an empty list
    \\a list that contains one empty list
    \\a list that contains three empty lists
+   \item access an element by index (start from 0):
+   \\\texttt{"Steve Buscemi" !! 6}
+   \\\texttt{[9.4,33.2,96.2,11.2,23.25] !! 1}
+   \item The lists within a list can be of different lengths but they can't be of different types. 
+   \item Lists can be compared if the stuff they contain can be compared, and they are compared in lexicographical order from left to right.
+   \\\texttt{[3,4,2] > [3,4]}
+   \item Basic functions that operate on lists:
+   \\\\\texttt{head}, \texttt{last}, \texttt{tail}, \texttt{init}
+   \\Be careful not to use them on empty lists. 
+   \\\\\texttt{length}, \texttt{null}, \texttt{reverse}, \texttt{take}, \texttt{drop}, \texttt{maximum}, \texttt{minimum}, \texttt{sum}, \texttt{product}, \texttt{elem}
   \end{itemize}
 
   \end{enumerate}
