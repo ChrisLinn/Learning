@@ -150,6 +150,44 @@ variable.\\
    \\\texttt{[ [ x | x <- xs, even x ] | xs <- xxs]}
    \\(You can write list comprehensions across several lines. )
   \end{itemize}
+  \item Tuples
+  \begin{itemize}
+   \item diff between lists and tuples:
+   \begin{itemize}
+    \item Lists: 
+    \begin{itemize}
+     \item of type of its components
+     \item num of components can be infinite.
+     \item you can compare two lists of different sizes. 
+    \end{itemize}
+    \item Tuples: 
+    \begin{itemize}
+     \item type depends on the num and types of the components. 
+     \item cannot be infinite.
+     \item components can be of diff types.
+     \item  tuples can be compared with each other if their components can be compared. But you can't compare two tuples of different sizes
+    \end{itemize}
+    \item examples:
+    \begin{itemize}
+     \item ok: \texttt{[[1,2], [8,11], [4,5] ]}
+     \item ok: \texttt{[[1,2], [8,11,5], [4,5]]}
+     \item ok: \texttt{[(1,2), (8,11), (4,5)]}
+     \item wrong: \texttt{[(1,2), (8,11,5), (4,5)]}
+     \item wrong: \texttt{[(1,2),("One",2)]}
+     \item ok: \texttt{("Christopher", "Walken", 55)} 
+     \\(so tuples can also contain lists)
+    \end{itemize}
+   \end{itemize}
+   \item zip 
+   \\examples:
+   \begin{itemize}
+    \item \texttt{zip [1,2,3,4,5] [5,5,5,5,5]}
+    \item \texttt{zip [1 .. 5] ["one", "two", "three", "four", "five"]}
+    \item \texttt{zip [5,3,2,6,2,7,2,5,4,6,6] ["im","a","turtle"]}
+    \item \texttt{zip [1..] ["apple", "orange", "cherry", "mango"]}
+    \item \texttt{let rightTriangles\textquotesingle \  = [ (a,b,c) | c <- [1. .10] , b <- [1. .c] , a <- [1. .b] , a\^{}2 + b\^{}2 == c\^{}2, a+b+c == 24]}
+   \end{itemize}
+  \end{itemize}
   \end{itemize}
   \end{enumerate}
 \end{enumerate}
