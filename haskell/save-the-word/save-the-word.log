@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.8)  23 JUL 2016 11:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.8)  23 JUL 2016 16:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -593,12 +593,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--75
 
  []
 
-[2]
+
 Underfull \hbox (badness 10000) in paragraph at lines 95--97
 
  []
 
-
+[2]
 Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
  []
@@ -691,25 +691,106 @@ Overfull \hbox (4.88719pt too wide) in paragraph at lines 188--189
 \T1/cmtt/m/n/10 b <- [1. .c] , a <- [1. .b] , a^^B2 + b^^B2 == c^^B2,
  []
 
-[5] (./save-the-word.aux) ) 
+
+Overfull \hbox (9.3795pt too wide) in paragraph at lines 315--317
+\T1/cmtt/m/n/10 capital all@(x:xs) = "The first letter of " ++ all ++ "
+ []
+
+
+Overfull \hbox (16.92313pt too wide) in paragraph at lines 319--326
+\T1/cmtt/m/n/10 ....| weight / height ^^B 2 <= 18.5 = "You're underweight, you
+ []
+
+
+Overfull \hbox (27.42056pt too wide) in paragraph at lines 319--326
+\T1/cmtt/m/n/10 ....| weight / height ^^B 2 <= 25.0 = "You're supposedly normal
+.
+ []
+
+
+Overfull \hbox (11.67441pt too wide) in paragraph at lines 319--326
+\T1/cmtt/m/n/10 ....| weight / height ^^B 2 <= 30.0 = "You're fat! Lose some
+ []
+
+
+Overfull \hbox (1.17697pt too wide) in paragraph at lines 326--336
+\T1/cmtt/m/n/10 ....| bmi <= skinny = "You're underweight, you emo, you!" 
+ []
+
+
+Overfull \hbox (6.42569pt too wide) in paragraph at lines 326--336
+\T1/cmtt/m/n/10 ....| bmi <= normal = "You're supposedly normal. Pffft, I
+ []
+
+
+Overfull \hbox (6.42569pt too wide) in paragraph at lines 326--336
+\T1/cmtt/m/n/10 ....| bmi <= fat = "You're fat! Lose some weight, fatty!" 
+ []
+
+[5]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 341.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 341.
+
+Overfull \hbox (60.7003pt too wide) in paragraph at lines 342--343
+[]\T1/cmr/m/n/10 Let bind-ings let you bind to vari-ables any-where and $[]$,
+ []
+
+
+Overfull \hbox (14.62822pt too wide) in paragraph at lines 350--352
+\T1/cmtt/m/n/10 [let square x = x * x in (square 5, square 3, square 2)] 
+ []
+
+
+Overfull \hbox (14.62822pt too wide) in paragraph at lines 352--354
+\T1/cmtt/m/n/10 (let a = 100; b = 200; c = 300 in a*b*c, let foo="Hey ";
+ []
+
+
+Overfull \hbox (9.3795pt too wide) in paragraph at lines 356--360
+\T1/cmtt/m/n/10 calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^^B 2,
+ []
+
+
+Overfull \hbox (35.6231pt too wide) in paragraph at lines 363--366
+\T1/cmtt/m/n/10 head' xs = case xs of [] -> error "No head for empty lists!" 
+ []
+
+
+Overfull \hbox (40.87181pt too wide) in paragraph at lines 366--370
+\T1/cmtt/m/n/10 describeList xs = "The list is " ++ case xs of [] -> "empty." 
+ []
+
+
+Overfull \hbox (14.62822pt too wide) in paragraph at lines 366--370
+\T1/cmtt/m/n/10 ...............................................[x] -> "a
+ []
+
+
+Overfull \hbox (9.3795pt too wide) in paragraph at lines 366--370
+\T1/cmtt/m/n/10 ...............................................xs -> "a
+ []
+
+[6] (./save-the-word.aux) ) 
 Here is how much of TeX's memory you used:
- 1301 strings out of 493029
- 15394 string characters out of 6136235
+ 1303 strings out of 493029
+ 15422 string characters out of 6136235
  65397 words of memory out of 5000000
- 4866 multiletter control sequences out of 15000+600000
+ 4868 multiletter control sequences out of 15000+600000
  10392 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 25i,6n,19p,311b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,6n,19p,472b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-
 ts1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/
 texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/pu
 blic/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm12
 00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/t
 exmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on save-the-word.pdf (5 pages, 104553 bytes).
+Output written on save-the-word.pdf (6 pages, 110165 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 49 PDF objects out of 1000 (max. 8388607)
+ 35 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

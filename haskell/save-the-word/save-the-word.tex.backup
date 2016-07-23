@@ -190,83 +190,173 @@ variable.\\
   \end{itemize}
   \end{itemize}
   \end{enumerate}
-  \item Types and Typeclasses (not that important)
+  
+  % \item Types and Typeclasses (not that important)
+  % \begin{itemize}
+  %  \item type
+  %  \begin{itemize}
+  %   \item static type system
+  %   \item type known at compile time
+  %   \begin{itemize}
+  %    \item ``type inference''
+  %    \item don't need to be claimed explicitly
+  %    \\but can be, using:
+  %    \\\texttt{::}
+  %   \end{itemize}
+  %   \item check using: 
+  %   \\\texttt{it}
+  %   \item seperated by:
+  %   \\\texttt{->}
+  %   \item some common types
+  %   \begin{itemize}
+  %    \item Int
+  %    \\bounded
+  %    \\$-2^{31} \sim 2^{31}$on 32-bit machines
+  %    \item Integer
+  %    \\not bounded
+  %    \item Float
+  %    \item Char
+  %    \item Bool
+  %    \item Ordering
+  %    \begin{itemize}
+  %     \item GT
+  %     \item LT
+  %     \item EQ
+  %    \end{itemize}
+  %    \item tuple types
+  %    \begin{itemize}
+  %     \item lengths \& components types
+  %     \item infinite
+  %     \item empty () is also a type
+  %    \end{itemize}
+  %   \end{itemize}
+  %  \end{itemize}
+  %  \item type variable
+  %  \begin{itemize}
+  %   \item don't have to be diff types
+  %   \item like so-called ``generics'' for ``polymorphism'' in Java
+  %  \end{itemize}
+  %  \item typeclass
+  %  \begin{itemize}
+  %   \item declared before ``\texttt{=>}''
+  %   \item \texttt{:t(==)}
+  %   \\\texttt{==} is a function, so are \texttt{+}, \texttt{*}, \texttt{-}, \texttt{/} and all operators.
+  %   \item some common Typeclasses
+  %   \begin{itemize}
+  %    \item Eq
+  %    \\ All standard Haskell types except for IO and functions
+  %    \item Ord
+  %    \\ All types so far except functions
+  %    \item Show
+  %    \begin{itemize}
+  %     \item variable -> string
+  %     \item All types so far except functions 
+  %     \item useful function:
+  %     \\\texttt{show}
+  %    \end{itemize}
+  %    \item Read
+  %    \begin{itemize}
+  %     \item string -> variable
+  %     \item useful function:
+  %     \\\texttt{read}
+  %     \item But if we do nothing with the result, sometimes Haskell don't know what type to return and there will be an error.
+  %     \\Therefore we need a explicit type annotation for it:
+  %     \\\texttt{read "5"::Float} 
+  %    \end{itemize}
+  %    \item Enum
+  %    \begin{itemize}
+  %     \item sequentially ordered
+  %     \\\texttt{[\textquotesingle a\textquotesingle ..\textquotesingle e\textquotesingle ]}
+  %     \\\texttt{[LT..GT]}
+  %     \\\texttt{[3..5]}
+  %     \item in list ranges
+  %     \item to get the successor:
+  %     \\\texttt{succ}
+  %     \item to get the predecesor:
+  %     \\\texttt{pred}
+  %    \end{itemize}
+  %    \item Bounded
+  %    \begin{itemize}
+  %     \item minBound
+  %     \\\texttt{maxBound :: Char}
+  %     \item maxBound
+  %     \\\texttt{minBound :: Bool}
+  %     \item tuples also have bounds
+  %    \end{itemize}
+  %    \item number-related typeclasses
+  %    \begin{itemize}
+  %     \item Num
+  %     \item Floating
+  %     \begin{enumerate}
+  %      \item Float
+  %      \item Double
+  %      \item useful function:
+  %      \\\texttt{fromIntegral}
+  %     \end{enumerate}
+  %     \item Integral
+  %     \begin{enumerate}
+  %      \item Int
+  %      \item Integer
+  %     \end{enumerate}
+  %    \end{itemize}
+  %   \end{itemize}
+  %  \end{itemize}
+  % \end{itemize}
+  \item Syntax in Functions
   \begin{itemize}
-   \item type
+   \item Pattern matching
    \begin{itemize}
-    \item static type system
-    \item type known at compile time
-    \begin{itemize}
-     \item ``type inference''
-     \item don't need to be claimed explicitly
-     \\but can be, using:
-     \\\texttt{::}
-    \end{itemize}
-    \item check using: 
-    \\\texttt{it}
-    \item seperated by:
-    \\\texttt{->}
-    \item some common types
-    \begin{itemize}
-     \item Int
-     \\bounded
-     \\$-2^{31} \sim 2^{31}$on 32-bit machines
-     \item Integer
-     \\not bounded
-     \item Float
-     \item Char
-     \item Bool
-     \item Ordering
-     \begin{itemize}
-      \item GT
-      \item LT
-      \item EQ
-     \end{itemize}
-     \item tuple types
-     \begin{itemize}
-      \item lengths \& components types
-      \item infinite
-      \item empty () is also a type
-     \end{itemize}
-    \end{itemize}
+    \item used in inputs
+    \item can be like ``if-else''
+    \item can be used on tuples
+    \item example:
+    \\\texttt{length\textquotesingle \ [] = 0}
+    \\\texttt{length\textquotesingle \ (\_:xs) = 1 + length\textquotesingle \ xs}
+    \item binding a pattern to a name:
+    \\\texttt{capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x]}
+    \item can't use \texttt{++} in pattern matches
    \end{itemize}
-   \item type variable
+   \item GUARDS
+   \\\texttt{bmiTell weight height}
+   \\\texttt{....| weight / height \^{} 2 <= 18.5 = "You're underweight, you emo, you!"}
+   \\\texttt{....| weight / height \^{} 2 <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"}
+   \\\texttt{....| weight / height \^{} 2 <= 30.0 = "You're fat! Lose some weight, fatty!"}
+   \\\texttt{....| otherwise = "You're a whale, congratulations!"}
+   \\(again, each `.' indicates a space)
+   \item GUARDS and WHERE BINDING
+   \\\texttt{bmiTell weight height}
+   \\\texttt{....| bmi <= skinny = "You're underweight, you emo, you!"}
+   \\\texttt{....| bmi <= normal = "You're supposedly normal. Pffft, I bet you're ugly!"}
+   \\\texttt{....| bmi <= fat = "You're fat! Lose some weight, fatty!"}
+   \\\texttt{....| otherwise = "You're a whale, congratulations!"}
+   \\\texttt{....where bmi = weight / height \^{} 2}
+   \\\texttt{..........skinny = 18.5}
+   \\\texttt{..........normal = 25.0}
+   \\\texttt{..........fat = 30.0}
+   \item define function in WHERE block
+   \\\texttt{calcBmis xs = [bmi w h | (w, h) <- xs]}
+   \\\texttt{....where bmi weight height = weight / height \^{} 2}
+   \item LET BINDING
    \begin{itemize}
-    \item don't have to be diff types
-    \item like so-called ``generics'' for ``polymorphism'' in Java
-   \end{itemize}
-   \item typeclass
-   \begin{itemize}
-    \item the part before ``\texttt{=>}''
-    \item some common Typeclasses
-    \begin{itemize}
-     \item Eq
-     \\ All standard Haskell types except for IO and functions
-     \item Ord
-     \\ All types so far except functions
-     \item Show
-     \\ variable -> string
-     \\ All types so far except functions
-     \\ useful function:
-     \\\texttt{show}
-     \item Read
-     \\ string -> variable
-     \\ useful function:
-     \\\texttt{read}
-     \item Enum
-     \item Bounded
-     \item (number related)
-     \begin{itemize}
-      \item Num
-      \item Floating
-      \item Integral
-     \end{itemize}
-
-    \end{itemize}
-
-    \item :t(==)
+    \item Where bindings are a syntactic construct that let you bind to variables \underline{at the end of a function} and the whole function can see them, including \underline{all the guards}.
+    \item Let bindings let you bind to variables anywhere and \underline{are expressions themselves}, but are very local, so they \underline{don't span across guards}.
+    \item example 1:
+    \\\texttt{cylinder r h =}
+    \\\texttt{....let sideArea = 2 * pi * r * h}
+    \\\texttt{........topArea = pi * r\^{}2}
+    \\\texttt{....in sideArea + 2 * topArea}
+    \item example 2:
+    \\\texttt{ 4 * (let a = 9 in a + 1) + 2}
+    \item example 3:
+    \\\texttt{[let square x = x * x in (square 5, square 3, square 2)]}
+    \item example 4:
+    \\\texttt{(let a = 100; b = 200; c = 300 in a*b*c, let foo="Hey "; bar = "there!" in foo ++ bar)}
+    \item example 5:
+    \\\texttt{(let (a,b,c) = (1,2,3) in a+b+c) * 100}
+    \item example 6:\texttt{}
    \end{itemize}
 
   \end{itemize}
+
 \end{enumerate}
 \end{document}
