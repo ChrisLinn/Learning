@@ -361,12 +361,13 @@ variable.\\
     \item CASE EXPRESSION
     \begin{itemize}
      \item pattern matching in function definitions is syntactic sugar for case expressions:
-     \\\texttt{head' xs = case xs of [] -> error "No head for empty lists!"}
+     \\\texttt{head\textquotesingle \ xs = case xs of [] -> error "No head for empty lists!"}
      \\\texttt{......................(x:\_) -> x}
      \item Whereas pattern matching on function parameters can used in defining functions, case expressions can be used anywhere:
      \\\texttt{describeList xs = "The list is " ++ case xs of [] -> "empty."}
      \\\texttt{...............................................[x] -> "a singleton list."}
      \\\texttt{...............................................xs -> "a longer list."}
+
    \end{itemize}
   \end{itemize}
 \end{enumerate}

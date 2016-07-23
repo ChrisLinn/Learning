@@ -76,8 +76,8 @@ variable.\\
    \item what is more:
    \begin{itemize}
     \item Functions can't begin with uppercase letters.
-    \item When a function doesn't take any parameters, we usually say it's a definition (or a name):
-    \\\texttt{conanO\textquotesingle Brien = "It\textquotesingle s a-me, Conan O\textquotesingle Brien!"}
+%    \item When a function doesn't take any parameters, we usually say it's a definition (or a name):
+%    \\\texttt{conanO\textquotesingle Brien = "It\textquotesingle s a-me, Conan O\textquotesingle Brien!"}
    \end{itemize}
   \end{itemize}
   \end{itemize}
@@ -96,8 +96,8 @@ variable.\\
     \\(take a while if the left one is too big)
     \\\item \texttt{\textquotesingle A\textquotesingle:" SMALL CAT"}
     \\(instantaneous)
-    \\\item \texttt{}{:} takes a number and a list of numbers or a character and a list of characters, whereas \texttt{++} takes two lists. 
-    \\\\(So if you're adding an element to the end of a list with ++ , you have to surround it with square brackets so it becomes a list.)
+    \\\item `\texttt{:}' takes a number and a list of numbers or a character and a list of characters, whereas `\texttt{++}' takes two lists. 
+    \\\\(So if you're adding an element to the end of a list with `\texttt{++}' , you have to surround it with square brackets so it becomes a list.)
     \\\\(\texttt{[1,2,3]} means \texttt{1:2:3:[]} or \texttt{1:2:[3]})\\
    \end{itemize}
    \item \texttt{[]} , \texttt{[[]]} and \texttt{[[] , [] , []]} are different:
@@ -122,7 +122,7 @@ variable.\\
    \\\texttt{[\textquotesingle K\textquotesingle ..\textquotesingle Z\textquotesingle ]}
    \\\texttt{[3,6..20]} (end up with 18)
    \\\texttt{[20,19..1]}
-   \item Don't use floating point numbers in ranges! Because they are not completely precise.
+   \item \textbf{Don't} use floating point numbers in ranges! Because they are not completely precise.
    \item Can also use ranges to make infinite lists by just not specifying an upper limit:
    \\\texttt{take 24 [13,26..]}
    \\\texttt{take 10 (repeat 5)}
@@ -307,7 +307,7 @@ variable.\\
    \item Pattern matching
    \begin{itemize}
     \item used in inputs
-    \item can be like ``if-else''
+    \item kinda like ``if-else''
     \item can be used on tuples
     \item example:
     \\\texttt{length\textquotesingle \ [] = 0}
@@ -316,14 +316,14 @@ variable.\\
     \\\texttt{capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x]}
     \item can't use \texttt{++} in pattern matches
    \end{itemize}
-   \item GUARDS
+   \item GUARDS:
    \\\texttt{bmiTell weight height}
    \\\texttt{....| weight / height \^{} 2 <= 18.5 = "You're underweight, you emo, you!"}
    \\\texttt{....| weight / height \^{} 2 <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"}
    \\\texttt{....| weight / height \^{} 2 <= 30.0 = "You're fat! Lose some weight, fatty!"}
    \\\texttt{....| otherwise = "You're a whale, congratulations!"}
    \\(again, each `.' indicates a space)
-   \item GUARDS and WHERE BINDING
+   \item GUARDS and WHERE BINDING:
    \\\texttt{bmiTell weight height}
    \\\texttt{....| bmi <= skinny = "You're underweight, you emo, you!"}
    \\\texttt{....| bmi <= normal = "You're supposedly normal. Pffft, I bet you're ugly!"}
@@ -353,10 +353,21 @@ variable.\\
     \\\texttt{(let a = 100; b = 200; c = 300 in a*b*c, let foo="Hey "; bar = "there!" in foo ++ bar)}
     \item example 5:
     \\\texttt{(let (a,b,c) = (1,2,3) in a+b+c) * 100}
-    \item example 6:\texttt{}
+    \item example 6:
+    \\\texttt{calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h \^{} 2, bmi >= 25.0}
+    \\(We can't use the bmi name in the \texttt{(w,h)<-xs} part because it's defined prior to the LET BINDING. The names defined in a LET inside a list comprehension are visible to the output function(the part before the `|') and all predicates and sections that come after of the binding.)
+%    \item We omitted the in part of the let binding when we used them in list comprehensions because the visibility of the names is already predefined there. However, we could use a let in binding in a predicate and the names defined would only be visible to that predicate. The in part can also be omitted when defining functions and constants directly in GHCi. If we do that, then the names will be visible throughout the entire interactive session.
+    \end{itemize}
+    \item CASE EXPRESSION
+    \begin{itemize}
+     \item pattern matching in function definitions is syntactic sugar for case expressions:
+     \\\texttt{head' xs = case xs of [] -> error "No head for empty lists!"}
+     \\\texttt{......................(x:\_) -> x}
+     \item Whereas pattern matching on function parameters can used in defining functions, case expressions can be used anywhere:
+     \\\texttt{describeList xs = "The list is " ++ case xs of [] -> "empty."}
+     \\\texttt{...............................................[x] -> "a singleton list."}
+     \\\texttt{...............................................xs -> "a longer list."}
    \end{itemize}
-
   \end{itemize}
-
 \end{enumerate}
 \end{document}
